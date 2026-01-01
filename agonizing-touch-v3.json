@@ -1,0 +1,488 @@
+{
+  "_id": "wEDZnXJvbkcAyG4m",
+  "name": "Agonizing Touch",
+  "type": "feat",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": {
+      "value": "<p><strong>Melee Spell Attack:</strong> +6 to hit, reach 5 ft., one creature.</p>\n<p><strong>Hit:</strong> 4d6 psychic damage.</p>\n<p>The target must succeed on a DC 14 WIS saving throw or be <strong>dazed</strong> (save ends at end of turn).</p>\n<p><strong>Dazed:</strong> A dazed creature can only take an action, a bonus action, OR move on their turn - not all three.</p>",
+      "chat": ""
+    },
+    "uses": {
+      "max": "",
+      "spent": 0,
+      "recovery": []
+    },
+    "requirements": "",
+    "activities": {
+      "dnd5eactivity000": {
+        "_id": "dnd5eactivity000",
+        "type": "attack",
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": "",
+          "override": false
+        },
+        "consumption": {
+          "targets": [],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          },
+          "spellSlot": true
+        },
+        "description": {
+          "chatFlavor": ""
+        },
+        "duration": {
+          "concentration": false,
+          "units": "inst",
+          "special": "",
+          "override": false
+        },
+        "effects": [
+          {
+            "_id": "hK9Ok3QHJBURadzv",
+            "level": {}
+          }
+        ],
+        "range": {
+          "units": "touch",
+          "special": "",
+          "override": false
+        },
+        "target": {
+          "template": {
+            "count": "",
+            "contiguous": false,
+            "type": "",
+            "size": "",
+            "width": "",
+            "height": "",
+            "units": "any"
+          },
+          "affects": {
+            "count": "1",
+            "type": "creature",
+            "choice": false,
+            "special": ""
+          },
+          "prompt": true,
+          "override": false
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "6",
+          "critical": {
+            "threshold": null
+          },
+          "flat": true,
+          "type": {
+            "value": "melee",
+            "classification": "spell"
+          }
+        },
+        "damage": {
+          "critical": {
+            "bonus": ""
+          },
+          "includeBase": true,
+          "parts": [
+            {
+              "number": 4,
+              "denomination": 6,
+              "bonus": "",
+              "types": [
+                "psychic"
+              ],
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "scaling": {
+                "mode": "",
+                "number": null,
+                "formula": ""
+              }
+            }
+          ]
+        },
+        "sort": 0,
+        "flags": {},
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "otherActivityId": "",
+        "otherActivityAsParentType": true
+      },
+      "dnd5eactivity100": {
+        "_id": "dnd5eactivity100",
+        "type": "save",
+        "activation": {
+          "type": "action",
+          "value": 1,
+          "condition": "",
+          "override": false
+        },
+        "consumption": {
+          "targets": [],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          },
+          "spellSlot": true
+        },
+        "description": {
+          "chatFlavor": ""
+        },
+        "duration": {
+          "concentration": false,
+          "units": "inst",
+          "special": "",
+          "override": false
+        },
+        "effects": [
+          {
+            "_id": "8JyFlkWu7nM6wxBy",
+            "onSave": false,
+            "level": {
+              "min": null,
+              "max": null
+            }
+          }
+        ],
+        "range": {
+          "units": "touch",
+          "special": "",
+          "override": false
+        },
+        "target": {
+          "template": {
+            "count": "",
+            "contiguous": false,
+            "type": "",
+            "size": "",
+            "width": "",
+            "height": "",
+            "units": "any"
+          },
+          "affects": {
+            "count": "1",
+            "type": "creature",
+            "choice": false,
+            "special": ""
+          },
+          "prompt": true,
+          "override": false
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "damage": {
+          "onSave": "none",
+          "parts": [
+            {
+              "custom": {
+                "enabled": false,
+                "formula": ""
+              },
+              "number": null,
+              "denomination": null,
+              "bonus": "",
+              "types": [
+                "psychic"
+              ],
+              "scaling": {
+                "number": 1
+              }
+            }
+          ],
+          "critical": {
+            "allow": false
+          }
+        },
+        "save": {
+          "ability": [
+            "wis"
+          ],
+          "dc": {
+            "calculation": "",
+            "formula": "14"
+          }
+        },
+        "sort": 0,
+        "flags": {},
+        "visibility": {
+          "level": {
+            "min": null,
+            "max": null
+          },
+          "requireAttunement": false,
+          "requireIdentification": false,
+          "requireMagic": false,
+          "identifier": ""
+        },
+        "useConditionText": "",
+        "useConditionReason": "",
+        "effectConditionText": "",
+        "macroData": {
+          "name": "",
+          "command": ""
+        },
+        "ignoreTraits": {
+          "idi": false,
+          "idr": false,
+          "idv": false,
+          "ida": false,
+          "idm": false
+        },
+        "midiProperties": {
+          "ignoreTraits": [],
+          "triggeredActivityId": "none",
+          "triggeredActivityConditionText": "",
+          "triggeredActivityTargets": "targets",
+          "triggeredActivityRollAs": "self",
+          "autoConsume": false,
+          "forceConsumeDialog": "default",
+          "forceRollDialog": "default",
+          "forceDamageDialog": "default",
+          "confirmTargets": "default",
+          "autoTargetType": "any",
+          "autoTargetAction": "default",
+          "automationOnly": false,
+          "otherActivityCompatible": true,
+          "otherActivityAsParentType": true,
+          "identifier": "",
+          "displayActivityName": false,
+          "rollMode": "default",
+          "chooseEffects": false,
+          "toggleEffect": false,
+          "ignoreFullCover": false,
+          "removeChatButtons": "default",
+          "magicEffect": false,
+          "magicDamage": false,
+          "noConcentrationCheck": false,
+          "autoCEEffects": "default"
+        },
+        "isOverTimeFlag": false,
+        "overTimeProperties": {
+          "saveRemoves": true,
+          "preRemoveConditionText": "",
+          "postRemoveConditionText": ""
+        },
+        "otherActivityId": "",
+        "otherActivityAsParentType": true,
+        "friendlySave": "default",
+        "name": ""
+      }
+    },
+    "advancement": [],
+    "identifier": "",
+    "source": {
+      "revision": 1,
+      "rules": "2024"
+    },
+    "crewed": false,
+    "enchant": {},
+    "prerequisites": {
+      "items": [],
+      "repeatable": false
+    },
+    "properties": [],
+    "type": {
+      "value": "",
+      "subtype": ""
+    }
+  },
+  "effects": [
+    {
+      "_id": "ZwLhkyPbTzp6MHB4",
+      "name": "Agonizing Touch. Melee Spell Attack - Dazed",
+      "img": "icons/svg/daze.svg",
+      "changes": [
+        {
+          "key": "flags.midi-qol.dazed",
+          "mode": 5,
+          "value": "1",
+          "priority": 20
+        },
+        {
+          "key": "macro.tokenMagic",
+          "mode": 0,
+          "value": "blur",
+          "priority": 20
+        }
+      ],
+      "duration": {
+        "rounds": 100,
+        "turns": 0
+      },
+      "flags": {
+        "dae": {
+          "stackable": "noneName",
+          "specialDuration": [
+            "turnEndSource"
+          ],
+          "macroRepeat": "endEveryTurn"
+        },
+        "chris-premades": {
+          "condition": true,
+          "conditionType": "dazed",
+          "customCondition": true
+        },
+        "convenient-effects": {
+          "isCustom": true,
+          "description": "Dazed: Can only take an action, a bonus action, OR move on your turn - not all three."
+        },
+        "automancy": {
+          "generated": true,
+          "mcdmCondition": true,
+          "conditionType": "dazed",
+          "saveEnds": true,
+          "saveEndsTiming": "end_of_turn",
+          "saveDC": 14,
+          "saveType": "wis",
+          "description": "Can only take an action, bonus action, OR move - not all three."
+        }
+      },
+      "statuses": [
+        "dazed"
+      ],
+      "transfer": false,
+      "disabled": false
+    }
+  ],
+  "flags": {
+    "midi-qol": {
+      "effectActivation": true,
+      "forceWorkflow": true,
+      "noDamSave": true,
+      "saveDamage": "nodam",
+      "otherSaveDamage": "nodam",
+      "rollOtherDamage": "none",
+      "saveDC": 14,
+      "saveScaling": "flat",
+      "rollAttackPerTarget": "never",
+      "selfTarget": false,
+      "selfTargetAlways": false
+    },
+    "chris-premades": {
+      "info": {
+        "name": "Agonizing Touch. Melee Spell Attack",
+        "version": "2.0.0",
+        "mutation": {
+          "self": "agonizingtouch.meleespellattack"
+        }
+      },
+      "config": [
+        {
+          "value": "saveDC",
+          "label": "Agonizing Touch. Melee Spell Attack Save DC",
+          "type": "number",
+          "default": 14
+        },
+        {
+          "value": "damageFormula",
+          "label": "Agonizing Touch. Melee Spell Attack Damage",
+          "type": "text",
+          "default": "4d6"
+        }
+      ],
+      "hasAnimation": true,
+      "animationConfig": {
+        "type": "generic",
+        "color": "#8a2be2"
+      },
+      "medkit": {
+        "enable": true,
+        "autoApply": true,
+        "itemHint": "Targets must make a WIS save or suffer the effects."
+      }
+    },
+    "dae": {
+      "transfer": false,
+      "stackable": "noneName",
+      "specialDuration": [
+        "turnEnd"
+      ],
+      "macroRepeat": "none"
+    },
+    "automancy": {
+      "generated": true,
+      "version": "2.0.0",
+      "phase": 2,
+      "complexity": 3,
+      "sourceType": "spell_attack",
+      "enhancedAutomation": true,
+      "generatedAt": "2025-12-21T08:55:11.313Z",
+      "professionalGrade": true,
+      "requiresNoManualWork": true,
+      "phase2": true,
+      "enhancementTimestamp": "2025-12-21T08:55:11.319Z",
+      "systemsIntegrated": [
+        "condition-engine",
+        "macro-templates"
+      ]
+    },
+    "mcdmDazed": true,
+    "dazedSaveEnds": true
+  },
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  }
+}

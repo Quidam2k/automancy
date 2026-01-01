@@ -1,0 +1,111 @@
+{
+  "demonstrationTitle": "Movement-Attack Integration System Demo",
+  "description": "Shows how Phase 2 handles movement-attack patterns with seamless UX",
+  
+  "owlbear_deadly_leap": {
+    "pattern": "move_attack_conditional",
+    "userExperience": {
+      "step1": "Click 'Deadly Leap' ability",
+      "step2": "See 30-foot radius template",
+      "step3": "Click destination to leap to",
+      "step4": "Token moves automatically",
+      "step5": "If leaped 20+ feet: Get attack targeting with prone-on-hit",
+      "step6": "If leaped <20 feet: Just movement, no combat bonus"
+    },
+    "automation": {
+      "templateTargeting": true,
+      "automaticMovement": true,
+      "conditionalEffects": "prone on failed STR save if 20+ foot leap",
+      "oneClickExperience": true
+    }
+  },
+
+  "manticore_agile_predator": {
+    "pattern": "attack_move",
+    "userExperience": {
+      "step1": "Click any attack ability (Bite, Claw, Tail Spike)",
+      "step2": "Target and resolve attack normally", 
+      "step3": "If hit: Automatically granted free movement",
+      "step4": "Move anywhere without opportunity attacks from that target",
+      "step5": "Effect ends at end of turn"
+    },
+    "automation": {
+      "triggerOnHit": true,
+      "selectiveOpportunityImmunity": "Only from the target you hit",
+      "temporaryEffect": "Until end of turn",
+      "automaticApplication": true
+    }
+  },
+
+  "manticore_claw_repositioning": {
+    "pattern": "attack_move_target", 
+    "userExperience": {
+      "step1": "Click 'Claw' attack",
+      "step2": "Target and resolve attack normally",
+      "step3": "If hit: Get 5-foot radius template centered on target",
+      "step4": "Click where to move the target",
+      "step5": "Target moves automatically to new position"
+    },
+    "automation": {
+      "postHitTargeting": true,
+      "forcedMovement": "5 feet horizontal",
+      "templateAfterHit": true,
+      "automaticTargetMovement": true
+    }
+  },
+
+  "comparison": {
+    "oldWay": {
+      "owlbear_deadly_leap": [
+        "Manually move token 20+ feet",
+        "Remember you moved far enough", 
+        "Use separate attack ability",
+        "Manually apply prone condition",
+        "Track save DC and requirements"
+      ],
+      "manticore_agile": [
+        "Make attack roll",
+        "Remember which target you hit",
+        "Manually track opportunity attack immunity",
+        "Remember effect ends at end of turn"
+      ]
+    },
+    "newWay": {
+      "owlbear_deadly_leap": [
+        "Click ability → Click destination → Everything automated"
+      ],
+      "manticore_agile": [
+        "Attack normally → Free movement granted automatically"
+      ]
+    }
+  },
+
+  "technical_implementation": {
+    "foundry_integration": {
+      "template_targeting": "Uses Foundry's native template system",
+      "automatic_movement": "Updates token position via document.update()",
+      "conditional_logic": "Macro validates requirements and applies effects",
+      "workflow_integration": "Hooks into MidiQOL workflow at optimal points"
+    },
+    "professional_standards": {
+      "error_handling": "Graceful fallbacks for invalid selections",
+      "visual_feedback": "Clear chat messages about automation steps",
+      "performance": "Efficient execution with minimal overhead", 
+      "compatibility": "Works with all major automation modules"
+    }
+  },
+
+  "expansion_potential": {
+    "additional_patterns": [
+      "Pounce (move → attack → prone)",
+      "Charge (move → attack → bonus damage)",
+      "Flyby Attack (move → attack → continue moving)",
+      "Bull Rush (move → attack → knockback)",
+      "Hit and Run (attack → move → no opportunity attacks)",
+      "Repositioning Strike (attack → move target)",
+      "Teleport Strike (teleport → attack → teleport back)"
+    ],
+    "auto_detection": "System automatically recognizes these patterns in ability text",
+    "zero_configuration": "No manual setup required - just import and use"
+  }
+}

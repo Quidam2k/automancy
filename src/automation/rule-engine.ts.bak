@@ -1,0 +1,374 @@
+import { 
+  ParsedAbility, 
+  AutomationResult, 
+  FoundryItemData, 
+  ActiveEffectData,
+  MacroData,
+  AbilityType,
+  AutomationComplexity 
+} from '../types';
+import { FlagGenerator } from './flag-generator';
+import { EffectGenerator } from './effect-generator';
+import { v4 as uuidv4 } from 'uuid';
+
+/**
+ * Core automation rule engine that converts parsed abilities into Foundry automation
+ * Based on analysis of successful automation modules
+ */
+export class RuleEngine {
+  private flagGenerator: FlagGenerator;
+  private effectGenerator: EffectGenerator;
+
+  constructor() {
+    this.flagGenerator = new FlagGenerator();
+    this.effectGenerator = new EffectGenerator();
+  }
+
+  /**
+   * Generate complete automation for a parsed ability
+   */
+  public generateAutomation(ability: ParsedAbility): AutomationResult {
+    const item = this.generateItemData(ability);
+    const effects = this.generateEffects(ability);
+    const macros = this.generateMacros(ability);
+    const flags = this.generateFlags(ability);
+
+    return {
+      item,
+      effects,
+      macros,
+      flags,
+      complexity: ability.complexity
+    };
+  }
+
+  private generateItemData(ability: ParsedAbility): FoundryItemData {
+    const itemType = this.determineItemType(ability.type);
+    
+    const baseItem: FoundryItemData = {
+      _id: uuidv4(),
+      name: ability.name,
+      type: itemType,
+      img: this.getIconPath(ability.type),
+      system: this.generateSystemData(ability, itemType),
+      effects: [], // Will be populated later
+      flags: {}, // Will be populated later
+      folder: null,
+      sort: 0,
+      ownership: { default: 0 }
+    };
+
+    return baseItem;
+  }
+
+  private determineItemType(abilityType: AbilityType): FoundryItemData['type'] {
+    switch (abilityType) {
+      case AbilityType.SPELL_ATTACK:
+      case AbilityType.SAVE_ABILITY:
+        return 'spell';
+      case AbilityType.WEAPON_ATTACK:
+        return 'weapon';
+      case AbilityType.PASSIVE:
+      case AbilityType.UTILITY:
+      case AbilityType.HEALING:
+      case AbilityType.REACTION:
+      default:
+        return 'feat';
+    }
+  }
+
+  private generateSystemData(ability: ParsedAbility, itemType: string): any {
+    const baseSystem = {
+      description: {
+        value: `<p>Generated automation for: ${ability.name}</p>`,
+        chat: "",
+        unidentified: ""
+      },
+      activation: {
+        type: ability.activation.type,
+        cost: ability.activation.cost,
+        condition: ability.activation.condition || ""
+      },
+      duration: {
+        value: ability.duration.value,
+        units: ability.duration.units
+      },
+      target: {
+        value: ability.target.value,
+        width: ability.target.width,
+        units: ability.target.units || "",
+        type: ability.target.type
+      },
+      range: {
+        value: ability.range.value,
+        long: ability.range.long,
+        units: ability.range.units
+      },
+      uses: this.generateUsesData(ability),
+      consume: {
+        type: "",
+        target: "",
+        amount: null
+      },
+      ability: null,
+      actionType: this.determineActionType(ability),
+      attackBonus: this.getAttackBonus(ability),
+      chatFlavor: "",
+      critical: {
+        threshold: null,
+        damage: ""
+      },
+      damage: {
+        parts: this.generateDamageParts(ability),
+        versatile: ""
+      },
+      formula: "",
+      save: this.generateSaveData(ability),
+      requirements: "",
+      recharge: {
+        value: null,
+        charged: true
+      }
+    };
+
+    // Add type-specific data
+    if (itemType === 'spell') {
+      return {
+        ...baseSystem,
+        level: 0, // Assume cantrip for homebrew, can be overridden
+        school: "div", // Divination as default
+        components: {
+          value: "",
+          vocal: false,
+          somatic: false,
+          material: false,
+          ritual: false,
+          concentration: ability.duration.concentration || false
+        },
+        materials: {
+          value: "",
+          consumed: false,
+          cost: 0,
+          supply: 0
+        },
+        preparation: {
+          mode: "prepared",
+          prepared: false
+        },
+        scaling: {
+          mode: "none",
+          formula: ""
+        }
+      };
+    }
+
+    if (itemType === 'weapon') {
+      return {
+        ...baseSystem,
+        quantity: 1,
+        weight: 0,
+        price: {
+          value: 0,
+          denomination: "gp"
+        },
+        rarity: "common",
+        identified: true,
+        equipped: false,
+        proficient: true,
+        properties: {},
+        weaponType: "simpleM", // Default to simple melee
+        baseItem: ""
+      };
+    }
+
+    // Default feat/feature structure
+    return baseSystem;
+  }
+
+  private determineActionType(ability: ParsedAbility): string {
+    // Use parsed attackType if available
+    if (ability.attackType) {
+      return ability.attackType;
+    }
+    switch (ability.type) {
+      case AbilityType.WEAPON_ATTACK:
+        return 'mwak'; // Default to melee weapon attack
+      case AbilityType.SPELL_ATTACK:
+        return 'rsak'; // Default to ranged spell attack
+      case AbilityType.SAVE_ABILITY:
+        return 'save';
+      case AbilityType.HEALING:
+        return 'heal';
+      case AbilityType.UTILITY:
+        return 'util';
+      default:
+        return 'other';
+    }
+  }
+
+  private getAttackBonus(ability: ParsedAbility): string {
+    // This would need to be extracted from parsing in a real implementation
+    // For now, return empty string to use default calculations
+    return "";
+  }
+
+  private generateDamageParts(ability: ParsedAbility): [string, string][] {
+    return ability.damage.map(damage => [
+      damage.formula,
+      damage.type
+    ]);
+  }
+
+  private generateSaveData(ability: ParsedAbility): any {
+    if (ability.saves.length === 0) {
+      return {
+        ability: "",
+        dc: null,
+        scaling: "spell"
+      };
+    }
+
+    const save = ability.saves[0]; // Use first save for now
+    return {
+      ability: save.ability,
+      dc: save.dc,
+      scaling: save.scaling
+    };
+  }
+
+  private generateUsesData(ability: ParsedAbility): any {
+    if (!ability.resources.consumesResource) {
+      return {
+        value: null,
+        max: "",
+        per: null,
+        recovery: ""
+      };
+    }
+
+    switch (ability.resources.type) {
+      case 'per_day':
+        return {
+          value: ability.resources.amount,
+          max: ability.resources.amount?.toString() || "",
+          per: "day",
+          recovery: ""
+        };
+      case 'per_rest':
+        return {
+          value: ability.resources.amount,
+          max: ability.resources.amount?.toString() || "",
+          per: "lr", // Assume long rest, could be refined
+          recovery: ""
+        };
+      case 'recharge':
+        return {
+          value: null,
+          max: "",
+          per: null,
+          recovery: ""
+        };
+      default:
+        return {
+          value: null,
+          max: "",
+          per: null,
+          recovery: ""
+        };
+    }
+  }
+
+  private generateEffects(ability: ParsedAbility): ActiveEffectData[] {
+    return this.effectGenerator.generateActiveEffects(ability);
+  }
+
+  private generateMacros(ability: ParsedAbility): MacroData[] {
+    const macros: MacroData[] = [];
+
+    // Only generate macros for moderate+ complexity
+    if (ability.complexity >= AutomationComplexity.MODERATE) {
+      const macro = this.generateBasicMacro(ability);
+      if (macro) {
+        macros.push(macro);
+      }
+    }
+
+    return macros;
+  }
+
+  private generateBasicMacro(ability: ParsedAbility): MacroData | null {
+    // Generate basic macro template for complex abilities
+    const macroName = ability.name.replace(/\s+/g, "");
+    
+    let macroCode = `// Generated macro for ${ability.name}\n`;
+    macroCode += `// Complexity Level: ${ability.complexity}\n\n`;
+    
+    macroCode += `const workflow = MidiQOL.Workflow.getWorkflow(args[0].uuid);\n`;
+    macroCode += `if (!workflow) return;\n\n`;
+
+    // Add ability-specific logic based on type
+    if (ability.type === AbilityType.SAVE_ABILITY && ability.effects.length > 0) {
+      macroCode += this.generateSaveWithEffectsMacro(ability);
+    } else if (ability.conditions.length > 0) {
+      macroCode += this.generateConditionalLogic(ability);
+    } else if (ability.resources.consumesResource) {
+      macroCode += this.generateResourceConsumption(ability);
+    } else {
+      // Basic macro template
+      macroCode += `console.log("${ability.name} macro executed");\n`;
+    }
+
+    return {
+      name: macroName,
+      type: 'script',
+      scope: 'global',
+      command: macroCode,
+      img: this.getIconPath(ability.type)
+    };
+  }
+
+  private generateSaveWithEffectsMacro(ability: ParsedAbility): string {
+    let code = `// Apply effects based on save results\n`;
+    code += `if (args[0].macroPass !== "postSave") return;\n\n`;
+    code += `for (let target of args[0].failedSaves) {\n`;
+    code += `  // Apply failure effects to target\n`;
+    code += `  console.log("Applying effects to", target.name);\n`;
+    code += `  // TODO: Apply specific effects based on ability\n`;
+    code += `}\n\n`;
+    return code;
+  }
+
+  private generateConditionalLogic(ability: ParsedAbility): string {
+    let code = `// Handle conditional effects\n`;
+    code += `const conditions = ${JSON.stringify(ability.conditions, null, 2)};\n`;
+    code += `// TODO: Implement condition-specific logic\n\n`;
+    return code;
+  }
+
+  private generateResourceConsumption(ability: ParsedAbility): string {
+    let code = `// Handle resource consumption\n`;
+    code += `if (args[0].macroPass !== "preItemRoll") return;\n\n`;
+    code += `const actor = args[0].actor;\n`;
+    code += `// TODO: Check and consume resources\n\n`;
+    return code;
+  }
+
+  private generateFlags(ability: ParsedAbility): Record<string, any> {
+    return this.flagGenerator.generateMidiQOLFlags(ability);
+  }
+
+  private getIconPath(abilityType: AbilityType): string {
+    // Default icon paths based on ability type
+    const iconMap = {
+      [AbilityType.WEAPON_ATTACK]: "systems/dnd5e/icons/items/weapons/sword-shortsword.jpg",
+      [AbilityType.SPELL_ATTACK]: "systems/dnd5e/icons/spells/beam-fire-1.jpg", 
+      [AbilityType.SAVE_ABILITY]: "systems/dnd5e/icons/spells/protect-blue-3.jpg",
+      [AbilityType.HEALING]: "systems/dnd5e/icons/spells/heal-jade-2.jpg",
+      [AbilityType.UTILITY]: "systems/dnd5e/icons/spells/enchant-utility-4.jpg",
+      [AbilityType.PASSIVE]: "systems/dnd5e/icons/spells/enchant-permanent.jpg",
+      [AbilityType.REACTION]: "systems/dnd5e/icons/spells/protect-cyan-2.jpg"
+    };
+
+    return iconMap[abilityType] || "systems/dnd5e/icons/spells/enchant-utility-4.jpg";
+  }
+}
