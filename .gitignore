@@ -27,3 +27,23 @@ npm-debug.log*
 
 # Reference repositories (cloned separately)
 reference/
+
+# Test data and generated files
+test_input/
+flee_mortals_*.txt
+flee_mortals_*.json
+flee_mortals_batch.txt
+
+# Utility scripts and viewers (local tools)
+extract_pdf.py
+generate_batch.py
+viewer.html
+viewer_validator.js
+simple-phase2-test.js
+
+# Test creature data
+owlbear-statblock.txt
+wraith.txt
+
+# Backup files
+*.bak
