@@ -34,16 +34,30 @@ flee_mortals_*.txt
 flee_mortals_*.json
 flee_mortals_batch.txt
 
+# Test output JSON files
+agonizing-touch*.json
+fvtt-Item-*.json
+manticore-phase2-complete.json
+owlbear-complete.json
+owlbear-phase2-demo.json
+wraith-complete.json
+movement-attack-demo.json
+
+# Test creature data and images
+owlbear-statblock.txt
+owlbear.png
+manticore.png
+wraith.txt
+
 # Utility scripts and viewers (local tools)
 extract_pdf.py
 generate_batch.py
 viewer.html
 viewer_validator.js
 simple-phase2-test.js
-
-# Test creature data
-owlbear-statblock.txt
-wraith.txt
+test-phase2-owlbear.ts
+install.cmd
+setup-reference-repos.sh
 
 # Backup files
 *.bak
