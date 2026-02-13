@@ -135,12 +135,18 @@ export interface ActiveEffectData {
     turns?: number | null;
     startRound?: number | null;
     startTurn?: number | null;
+    combat?: string | null;
   };
   flags?: Record<string, any>;
   statuses?: string[];
   transfer?: boolean;
   disabled?: boolean;
-  origin?: string;
+  origin?: string | null;
+  type?: string;
+  system?: Record<string, any>;
+  description?: string;
+  tint?: string;
+  sort?: number;
 }
 
 export interface ChangeData {
