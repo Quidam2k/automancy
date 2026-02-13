@@ -61,3 +61,6 @@ setup-reference-repos.sh
 
 # Backup files
 *.bak
+
+# Windows artifact from NUL device
+nul
