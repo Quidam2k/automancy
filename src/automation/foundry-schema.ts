@@ -288,9 +288,6 @@ export function createBaseEffect(id: string, name: string): ActiveEffectData {
       rounds: null,
       turns: null,
       startTime: null,
-      seconds: null,
-      startRound: null,
-      startTurn: null,
       combat: null,
     },
     flags: {

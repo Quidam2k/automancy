@@ -74,12 +74,25 @@ function buildMidiFlags(parsed: ParsedAbility): Record<string, any> {
 
 /**
  * Build DAE item-level flags.
+ * Derives specialDuration from parsed condition timing.
  */
 function buildDaeFlags(parsed: ParsedAbility): Record<string, any> {
+  const specialDuration: string[] = [];
+
+  for (const condition of parsed.conditions) {
+    if (condition.saveEnds) {
+      const timing = condition.saveEndsTiming || 'end_of_turn';
+      const mapped = timing === 'start_of_turn' ? 'turnStart' : 'turnEnd';
+      if (!specialDuration.includes(mapped)) {
+        specialDuration.push(mapped);
+      }
+    }
+  }
+
   return {
     transfer: false,
     stackable: 'noneName',
-    specialDuration: [],
+    specialDuration,
     macroRepeat: 'none',
   };
 }
@@ -103,11 +116,12 @@ function buildChrisPremadeFlags(parsed: ParsedAbility): Record<string, any> {
 
 /**
  * Generate a human-readable hint for the chris-premades medkit.
+ * Produces prose like: "Melee spell attack. On hit: 4d6 psychic + DC 14 WIS save or dazed."
  */
 function generateItemHint(parsed: ParsedAbility): string {
-  const parts: string[] = [];
+  const sentences: string[] = [];
 
-  // Attack type
+  // Attack type sentence
   if (parsed.attackType) {
     const attackNames: Record<string, string> = {
       mwak: 'Melee weapon attack',
@@ -115,28 +129,39 @@ function generateItemHint(parsed: ParsedAbility): string {
       msak: 'Melee spell attack',
       rsak: 'Ranged spell attack',
     };
-    parts.push(attackNames[parsed.attackType] || 'Attack');
+    sentences.push(attackNames[parsed.attackType] || 'Attack');
   }
+
+  // Build the "On hit:" or main effect clause
+  const hitParts: string[] = [];
 
   // Damage
   if (parsed.damage.length > 0) {
     const dmgParts = parsed.damage.map(d => `${d.formula} ${d.type}`);
-    parts.push(dmgParts.join(' + '));
+    hitParts.push(dmgParts.join(' + '));
   }
 
-  // Saves
+  // Save + conditions combined
   if (parsed.saves.length > 0) {
     const save = parsed.saves[0];
-    parts.push(`DC ${save.dc} ${save.ability.toUpperCase()} save`);
-  }
-
-  // Conditions
-  if (parsed.conditions.length > 0) {
+    let saveStr = `DC ${save.dc} ${save.ability.toUpperCase()} save`;
+    if (parsed.conditions.length > 0) {
+      const condNames = parsed.conditions.map(c => c.name || c.type);
+      saveStr += ` or ${condNames.join(', ')}`;
+    }
+    hitParts.push(saveStr);
+  } else if (parsed.conditions.length > 0) {
+    // Conditions without a save
     const condNames = parsed.conditions.map(c => c.name || c.type);
-    parts.push(`or ${condNames.join(', ')}`);
+    hitParts.push(condNames.join(', '));
   }
 
-  return parts.join('. ') + '.';
+  if (hitParts.length > 0) {
+    const prefix = parsed.attackType ? 'On hit: ' : '';
+    sentences.push(prefix + hitParts.join(' + '));
+  }
+
+  return sentences.join('. ') + '.';
 }
 
 /**

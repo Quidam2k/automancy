@@ -391,21 +391,45 @@ export class TextAnalyzer {
 
     // Check for standard and MCDM conditions
     const allConditions = [...standardConditions, ...mcdmConditions];
+
+    // Pre-detect duration phrases that apply to conditions
+    const hasSaveEndPhrase = /save\s*ends|saving throw.*ends|ends?.*saving throw/i.test(text);
+    const hasRepeatSave = /repeat(?:s|ing)?\s+(?:the\s+)?sav(?:e|ing\s+throw)|can\s+(?:make|attempt)\s+(?:a\s+)?(?:new\s+)?sav/i.test(text);
+    const hasEndOfTurn = /(?:at\s+)?(?:the\s+)?end\s+of\s+(?:its|their|the target'?s?|each|the|your)?\s*(?:next\s+)?turn/i.test(text);
+    const hasStartOfTurn = /(?:at\s+)?(?:the\s+)?(?:start|beginning)\s+of\s+(?:its|their|the target'?s?|each|the|your)?\s*(?:next\s+)?turn/i.test(text);
+    const hasUntilPhrase = /until\s+(?:the\s+)?(?:start|end|beginning)\s+of/i.test(text);
+    const hasTimedDuration = /for\s+\d+\s+(?:minute|round|hour|day|turn)/i.test(text);
+
     for (const condName of allConditions) {
       // Look for "be <condition>" or "is <condition>" or "becomes <condition>"
       const condPattern = new RegExp(`(?:be|is|becomes?|are)\\s+(?:<[^>]+>)?\\s*${condName}`, 'i');
       if (condPattern.test(text)) {
-        // Check for "save ends" pattern
-        const saveEnds = /save\s*ends|saving throw.*ends|ends?.*saving throw/i.test(text);
-        // Check for end of turn patterns - various phrasings
-        const endOfTurn = /(?:at\s+)?(?:the\s+)?end\s+of\s+(?:its|their|the target's|each|the|your)?\s*turn/i.test(text);
+        // Determine if this condition has a managed duration (needs DAE machinery).
+        // saveEnds = true when the text specifies the condition persists beyond
+        // instant application. We only trigger on explicit duration evidence:
+        // 1. Explicit "save ends" / "repeat the saving throw"
+        // 2. Turn-based expiry ("until the end/start of its turn")
+        // 3. Timed duration ("for X minutes/rounds")
+        // Note: mere presence of a save DC is NOT enough — "save or be prone"
+        // has no managed duration (prone is removed by using movement).
+        const saveEnds = hasSaveEndPhrase || hasRepeatSave || hasEndOfTurn ||
+          hasStartOfTurn || hasUntilPhrase || hasTimedDuration;
+
+        // Determine timing: start or end of turn
+        let saveEndsTiming: 'start_of_turn' | 'end_of_turn';
+        if (hasStartOfTurn && !hasEndOfTurn) {
+          saveEndsTiming = 'start_of_turn';
+        } else {
+          // Default to end_of_turn for most cases (end of turn, save ends, timed, etc.)
+          saveEndsTiming = 'end_of_turn';
+        }
 
         conditions.push({
           type: condName,
           name: condName,
           value: true,
           saveEnds: saveEnds,
-          saveEndsTiming: endOfTurn ? 'end_of_turn' : 'start_of_turn'
+          saveEndsTiming: saveEndsTiming,
         });
       }
     }

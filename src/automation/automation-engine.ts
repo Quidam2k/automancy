@@ -7,13 +7,14 @@ import {
   ParsedAbility,
   AbilityType,
   AutomationComplexity,
+  DamageData,
   FoundryItemData,
   ActiveEffectData,
   AutomationResult,
   ValidationResult,
 } from '../types';
 import { generateFoundryId } from './constants';
-import { createBaseItem } from './foundry-schema';
+import { createBaseItem, createDamagePart } from './foundry-schema';
 import {
   buildAttackActivity,
   buildSaveActivity,
@@ -154,23 +155,23 @@ export class AutomationEngine {
     switch (parsed.type) {
       case AbilityType.WEAPON_ATTACK:
       case AbilityType.SPELL_ATTACK: {
-        // Primary: attack activity
+        // Primary: attack activity (keeps full damage + effect refs without onSave)
         const attackId = context.activityIds.attack;
         if (attackId) {
-          // For attack+save combos, effects go on the save activity
-          const attackContext = parsed.saves.length > 0
-            ? { ...context, effectIds: [] }
-            : context;
-          activities[attackId] = buildAttackActivity(attackId, parsed, attackContext);
+          activities[attackId] = buildAttackActivity(attackId, parsed, context);
         }
         // Secondary: save activity (if ability has saves too)
         const saveId = context.activityIds.save;
         if (saveId && parsed.saves.length > 0) {
-          const saveContext = { ...context };
-          // Save activity gets no damage parts for attack+save combo
-          // (damage is on the attack activity)
-          const saveParsed = { ...parsed, damage: [] };
-          activities[saveId] = buildSaveActivity(saveId, saveParsed, saveContext);
+          // Build save with no damage, then add type-only parts
+          const saveParsed = { ...parsed, damage: [] as DamageData[] };
+          const saveActivity = buildSaveActivity(saveId, saveParsed, context);
+          // Add type-only damage parts (null dice, type preserved, scaling.number: 1)
+          // so midi-qol knows the associated damage type
+          saveActivity.damage.parts = parsed.damage
+            .filter((d: DamageData) => !d.conditional)
+            .map((d: DamageData) => createDamagePart(null, null, '', d.type ? [d.type] : [], { number: 1 }));
+          activities[saveId] = saveActivity;
         }
         break;
       }
@@ -400,26 +401,10 @@ export class AutomationEngine {
 
   /**
    * Map AbilityType to Foundry item type.
+   * Currently all abilities map to 'feat'. Expand when spell/weapon types are needed.
    */
-  private mapAbilityTypeToItemType(type: AbilityType): FoundryItemData['type'] {
-    switch (type) {
-      case AbilityType.WEAPON_ATTACK:
-        return 'feat';
-      case AbilityType.SPELL_ATTACK:
-        return 'feat';
-      case AbilityType.SAVE_ABILITY:
-        return 'feat';
-      case AbilityType.HEALING:
-        return 'feat';
-      case AbilityType.UTILITY:
-        return 'feat';
-      case AbilityType.PASSIVE:
-        return 'feat';
-      case AbilityType.REACTION:
-        return 'feat';
-      default:
-        return 'feat';
-    }
+  private mapAbilityTypeToItemType(_type: AbilityType): FoundryItemData['type'] {
+    return 'feat';
   }
 
   /**

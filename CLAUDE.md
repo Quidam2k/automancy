@@ -91,9 +91,9 @@ src/
 - **Macros live on activities.** Real items use `activity.macroData.command` for inline code. No global macro generation, no hook registration, no `window.*` exports.
 - **reviewNotes for complex cases.** Level 3-4 abilities output `reviewNotes[]` flagging what needs manual verification.
 - **Validation as a gate.** Every generated item runs through `validation.ts` before output. Catches missing fields, invalid flag paths, mismatched IDs.
-- **Only standard conditions in statuses[].** Custom conditions (dazed, bleeding) get changes + descriptive flags but NOT fake statuses in the standard 5e set.
+- **Both standard and custom conditions in statuses[].** All conditions (including custom ones like dazed) get `statuses[]` entries for icon display. Custom conditions additionally get chris-premades + convenient-effects flags.
 - **Pre-generated IDs.** Effect and activity IDs are generated before building either, so activities can reference effects by ID.
-- **Attack+save combo pattern.** For abilities with both attack and save (like Agonizing Touch), the attack activity gets damage parts but no effect references; the save activity gets effect references but no damage parts. This matches the reference item pattern.
+- **Attack+save combo pattern.** For abilities with both attack and save (like Agonizing Touch), both activities reference effects — attack gets plain refs (no `onSave`), save gets refs with `onSave: false`. The attack activity gets full damage parts; the save activity gets type-only damage parts (null dice, type preserved, `scaling.number: 1`).
 
 ## Module Compatibility Details
 

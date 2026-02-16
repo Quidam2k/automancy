@@ -1,7 +1,7 @@
 /**
  * Builds Active Effects with correct DAE/midi-qol flags.
- * Only STANDARD_CONDITIONS go in statuses[].
- * Custom conditions get changes + descriptive flags but NOT fake statuses.
+ * Both standard and custom conditions go in statuses[] (for icon display).
+ * Custom conditions additionally get chris-premades + convenient-effects flags.
  */
 
 import { ParsedAbility, ConditionData, ActiveEffectData, ChangeData } from '../types';
@@ -63,7 +63,7 @@ function buildConditionEffect(
     effect.statuses = [condition.type];
     effect.changes = getStandardConditionChanges(condition.type as StandardCondition);
   } else {
-    // Custom conditions get midi-qol flag changes but NOT fake statuses
+    // Custom conditions get midi-qol flag changes + status for icon display
     effect.changes = getCustomConditionChanges(condition.type);
     // Add informational flags
     effect.flags!['chris-premades'] = {
