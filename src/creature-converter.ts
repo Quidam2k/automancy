@@ -56,6 +56,9 @@ export class CreatureConverter {
   }
 
   private parseStatBlock(statBlock: string): CreatureDescription {
+    // Normalize line endings: \r\n -> \n (Windows stat block files)
+    statBlock = statBlock.replace(/\r\n/g, '\n');
+
     const lines = statBlock.split('\n').map(line => line.trim()).filter(line => line);
 
     const creature: CreatureDescription = {
@@ -128,6 +131,32 @@ export class CreatureConverter {
     const profMatch = statBlock.match(/Proficiency Bonus\s*\+(\d+)/i);
     if (profMatch) {
       creature.proficiencyBonus = parseInt(profMatch[1]);
+    }
+
+    // Parse Saving Throws (e.g., "Saving Throws Con +6, Wis +4")
+    const savesMatch = statBlock.match(/Saving Throws\s+(.+?)(?:\n|$)/i);
+    if (savesMatch) {
+      creature.savingThrows = {};
+      const saveParts = savesMatch[1].split(/,\s*/);
+      for (const part of saveParts) {
+        const saveMatch = part.match(/(Str|Dex|Con|Int|Wis|Cha)\s*([+-]\d+)/i);
+        if (saveMatch) {
+          creature.savingThrows[saveMatch[1].toLowerCase().substring(0, 3)] = parseInt(saveMatch[2]);
+        }
+      }
+    }
+
+    // Parse Skills (e.g., "Skills Perception +4, Stealth +6")
+    const skillsMatch = statBlock.match(/Skills\s+(.+?)(?:\n|$)/i);
+    if (skillsMatch) {
+      creature.skills = {};
+      const skillParts = skillsMatch[1].split(/,\s*/);
+      for (const part of skillParts) {
+        const skillMatch = part.match(/(\w[\w\s]*\w|\w+)\s*([+-]\d+)/);
+        if (skillMatch) {
+          creature.skills[skillMatch[1].trim().toLowerCase()] = parseInt(skillMatch[2]);
+        }
+      }
     }
 
     // Parse ability scores - handle vertical format (each stat on separate lines)
@@ -334,40 +363,28 @@ export class CreatureConverter {
   private parseAbilitiesFromText(text: string): string[] {
     const abilities: string[] = [];
 
-    // Pattern: Ability names start with a capitalized word(s) followed by a period
-    // e.g., "Agonizing Touch." or "Melee Spell Attack:"
-    // We need to match complete ability blocks, not split on every period
+    // Ability names must appear at start of text or after a newline.
+    // Names are Title Case: each word capitalized, with optional lowercase connectors.
+    // This prevents sentences like "A creature restrained..." from matching as ability names.
+    // Pattern: "Name." or "Name (Recharge X-Y)." at start-of-line
+    const abilityPattern = /(?:^|\n)([A-Z][a-zA-Z'-]+(?:\s+(?:[A-Z][a-zA-Z'-]+|of|the|and|or|a|an|in|to|at|on|for|with|by))*(?:\s*\([^)]+\))?)\.\s/g;
 
-    // Split on ability name patterns: Word(s). or Word(s) (Recharge X-Y).
-    // But keep the name with its description
-    const abilityPattern = /([A-Z][a-zA-Z\s]+(?:\([^)]+\))?)\.\s+/g;
-
-    let lastIndex = 0;
-    let currentAbilityName = '';
-    let currentAbilityStart = 0;
     const matches: { name: string; start: number }[] = [];
 
     let m;
     while ((m = abilityPattern.exec(text)) !== null) {
-      // Check if this looks like an ability name (not mid-sentence)
       const name = m[1].trim();
-      // Skip if it's clearly mid-sentence (preceded by lowercase or common words)
-      const precedingChar = m.index > 0 ? text[m.index - 1] : '\n';
-      if (precedingChar === '\n' || precedingChar === ' ' && m.index < 3) {
-        matches.push({ name, start: m.index });
-      } else if (/^[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s*\([^)]+\))?$/.test(name)) {
-        // Looks like a proper ability name
-        matches.push({ name, start: m.index });
-      }
+      // The match start is at ^ or \n; the ability text starts at the name
+      const nameStart = m.index + (text[m.index] === '\n' ? 1 : 0);
+      matches.push({ name, start: nameStart });
     }
 
-    // Now extract complete abilities
+    // Extract complete abilities (from one name to the next)
     for (let i = 0; i < matches.length; i++) {
       const start = matches[i].start;
       const end = i < matches.length - 1 ? matches[i + 1].start : text.length;
       const abilityText = text.substring(start, end).trim();
 
-      // Only add if it has substantial content
       if (abilityText.length > 10) {
         abilities.push(abilityText);
       }
@@ -388,7 +405,7 @@ export class CreatureConverter {
       type: "npc",
       img: this.getCreatureIcon(creature.type),
       system: {
-        abilities: this.generateAbilities(creature.abilities),
+        abilities: this.generateAbilities(creature),
         attributes: {
           ac: {
             flat: creature.armorClass,
@@ -426,7 +443,7 @@ export class CreatureConverter {
           xp: { value: creature.experiencePoints },
           source: "Automancy"
         },
-        skills: {},
+        skills: this.generateSkills(creature),
         traits: {
           size: creature.size.toLowerCase(),
           di: { value: creature.damageImmunities || [], custom: "" },
@@ -459,20 +476,75 @@ export class CreatureConverter {
     };
   }
 
-  private generateAbilities(abilities: CreatureDescription['abilities']) {
+  private generateAbilities(creature: CreatureDescription) {
     const result: Record<string, any> = {};
-    
-    Object.entries(abilities).forEach(([key, value]) => {
+
+    Object.entries(creature.abilities).forEach(([key, value]) => {
       result[key] = {
         value: value,
-        proficient: 0,
+        proficient: creature.savingThrows && key in creature.savingThrows ? 1 : 0,
         bonuses: {
           check: "",
           save: ""
         }
       };
     });
-    
+
+    return result;
+  }
+
+  private generateSkills(creature: CreatureDescription): Record<string, any> {
+    if (!creature.skills || Object.keys(creature.skills).length === 0) {
+      return {};
+    }
+
+    // Map D&D skill names to Foundry keys and their associated abilities
+    const skillMap: Record<string, { key: string; ability: string }> = {
+      acrobatics: { key: 'acr', ability: 'dex' },
+      'animal handling': { key: 'ani', ability: 'wis' },
+      arcana: { key: 'arc', ability: 'int' },
+      athletics: { key: 'ath', ability: 'str' },
+      deception: { key: 'dec', ability: 'cha' },
+      history: { key: 'his', ability: 'int' },
+      insight: { key: 'ins', ability: 'wis' },
+      intimidation: { key: 'itm', ability: 'cha' },
+      investigation: { key: 'inv', ability: 'int' },
+      medicine: { key: 'med', ability: 'wis' },
+      nature: { key: 'nat', ability: 'int' },
+      perception: { key: 'prc', ability: 'wis' },
+      performance: { key: 'prf', ability: 'cha' },
+      persuasion: { key: 'per', ability: 'cha' },
+      religion: { key: 'rel', ability: 'int' },
+      'sleight of hand': { key: 'slt', ability: 'dex' },
+      stealth: { key: 'ste', ability: 'dex' },
+      survival: { key: 'sur', ability: 'wis' },
+    };
+
+    const result: Record<string, any> = {};
+
+    for (const [name, bonus] of Object.entries(creature.skills)) {
+      const mapping = skillMap[name.toLowerCase()];
+      if (mapping) {
+        // value: 0=not proficient, 1=proficient, 2=expertise
+        // Determine proficiency level from bonus vs ability mod + prof
+        const abilityScore = creature.abilities[mapping.ability as keyof typeof creature.abilities] || 10;
+        const abilityMod = Math.floor((abilityScore - 10) / 2);
+        const expectedProf = abilityMod + creature.proficiencyBonus;
+        const expectedExpert = abilityMod + creature.proficiencyBonus * 2;
+
+        let value = 1; // default to proficient
+        if (bonus >= expectedExpert) {
+          value = 2; // expertise
+        }
+
+        result[mapping.key] = {
+          value,
+          ability: mapping.ability,
+          bonuses: { check: '', passive: '' },
+        };
+      }
+    }
+
     return result;
   }
 

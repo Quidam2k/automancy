@@ -247,12 +247,18 @@ function normalizeAbility(ability: string): string {
  */
 function parseDamageFormula(formula: string): { number: number | null; denomination: number | null; bonus: string } {
   const diceMatch = formula.match(/(\d+)d(\d+)/);
-  const bonusMatch = formula.match(/[+-]\s*(\d+)(?!d)/);
+  const bonusMatch = formula.match(/([+-])\s*(\d+)(?!d)/);
+
+  let bonus = '';
+  if (bonusMatch) {
+    // Keep "-" for negative, omit "+" for positive (Foundry adds the +)
+    bonus = bonusMatch[1] === '-' ? `-${bonusMatch[2]}` : bonusMatch[2];
+  }
 
   return {
     number: diceMatch ? parseInt(diceMatch[1]) : null,
     denomination: diceMatch ? parseInt(diceMatch[2]) : null,
-    bonus: bonusMatch ? bonusMatch[0].replace(/\s/g, '') : '',
+    bonus,
   };
 }
 

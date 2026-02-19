@@ -61,28 +61,28 @@ export class TextAnalyzer {
   }
 
   private extractName(text: string): string {
-    // Try to extract name from first line or before colon
+    // Try to extract name from first line
     const lines = text.split('\n');
     const firstLine = lines[0].trim();
-    
-    // Check for "Name:" pattern
-    const colonMatch = firstLine.match(/^([^:]+):/);
-    if (colonMatch) {
-      return colonMatch[1].trim();
-    }
-    
-    // Check for "Name. Description" pattern
+
+    // Check for "Name. Description" pattern first (most common D&D ability format)
     const periodMatch = firstLine.match(/^([^.]+)\./);
     if (periodMatch && periodMatch[1].length < 50) {
       return periodMatch[1].trim();
     }
-    
+
+    // Check for "Name:" pattern (secondary, e.g. section headers)
+    const colonMatch = firstLine.match(/^([^:]+):/);
+    if (colonMatch) {
+      return colonMatch[1].trim();
+    }
+
     // Fallback to first few words if short enough
     const words = firstLine.split(' ');
     if (words.length <= 3 && firstLine.length < 30) {
       return firstLine;
     }
-    
+
     return 'Unnamed Ability';
   }
 
