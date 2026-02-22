@@ -310,9 +310,22 @@ function getEffectChanges(eff: ParsedAbility['effects'][0]): ChangeData[] {
  */
 function setEffectDuration(effect: ActiveEffectData, condition: ConditionData): void {
   if (condition.saveEnds) {
-    // Save-ends: long duration + specialDuration for turn-based saves
-    effect.duration.rounds = 100;
-    effect.duration.turns = 0;
+    if (condition.timedDuration) {
+      // Explicit timed duration: convert to seconds or rounds
+      const td = condition.timedDuration;
+      if (td.units === 'round') {
+        effect.duration.rounds = td.value;
+        effect.duration.turns = 0;
+      } else {
+        // Convert to seconds: minutes, hours, days
+        const multipliers: Record<string, number> = { minute: 60, hour: 3600, day: 86400 };
+        effect.duration.seconds = td.value * (multipliers[td.units] || 60);
+      }
+    } else {
+      // No explicit time — use large round count as save-ends fallback
+      effect.duration.rounds = 100;
+      effect.duration.turns = 0;
+    }
 
     const timing = condition.saveEndsTiming || 'end_of_turn';
     const specialDuration: DaeSpecialDuration = timing === 'start_of_turn' ? 'turnStartSource' : 'turnEndSource';

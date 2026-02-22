@@ -98,6 +98,7 @@ export interface ConditionData {
   condition?: string;
   saveEnds?: boolean; // Whether the condition can be ended with a save
   saveEndsTiming?: "start_of_turn" | "end_of_turn"; // When the save happens
+  timedDuration?: { value: number; units: "round" | "minute" | "hour" | "day" }; // Explicit timed duration (e.g., "for 1 minute")
 }
 
 export interface ResourceData {

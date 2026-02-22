@@ -400,9 +400,21 @@ export class TextAnalyzer {
     const hasUntilPhrase = /until\s+(?:the\s+)?(?:start|end|beginning)\s+of/i.test(text);
     const hasTimedDuration = /for\s+\d+\s+(?:minute|round|hour|day|turn)/i.test(text);
 
+    // Extract actual timed duration values
+    const timedMatch = text.match(/for\s+(\d+)\s+(minute|round|hour|day|turn)s?/i);
+    const timedDuration = timedMatch ? {
+      value: parseInt(timedMatch[1]),
+      units: timedMatch[2].toLowerCase().replace('turn', 'round') as 'round' | 'minute' | 'hour' | 'day',
+    } : undefined;
+
     for (const condName of allConditions) {
-      // Look for "be <condition>" or "is <condition>" or "becomes <condition>"
-      const condPattern = new RegExp(`(?:be|is|becomes?|are)\\s+(?:<[^>]+>)?\\s*${condName}`, 'i');
+      // Look for "be <condition>", "is also <condition>", "becomes <condition>",
+      // or bare "<condition> for N ..." (shorthand text without verb)
+      const condPattern = new RegExp(
+        `(?:(?:be|is|becomes?|are)\\s+(?:also\\s+)?(?:<[^>]+>)?\\s*${condName}` +
+        `|\\b${condName}\\s+for\\s+\\d+\\s+(?:minute|round|hour|day|turn))`,
+        'i'
+      );
       if (condPattern.test(text)) {
         // Determine if this condition has a managed duration (needs DAE machinery).
         // saveEnds = true when the text specifies the condition persists beyond
@@ -430,6 +442,7 @@ export class TextAnalyzer {
           value: true,
           saveEnds: saveEnds,
           saveEndsTiming: saveEndsTiming,
+          ...(saveEnds && timedDuration ? { timedDuration } : {}),
         });
       }
     }

@@ -25,7 +25,7 @@ const tests = [
     text: 'Claw. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1d4 + 2 slashing damage. The target must succeed on a DC 10 Constitution saving throw or be paralyzed for 2 rounds. At the end of each of its turns, the target can repeat the saving throw.',
     expectCondition: 'paralyzed',
     expectSaveEnds: true,
-    expectRounds: 100,
+    expectRounds: 2,
   },
   {
     name: 'Frightened (no explicit duration)',
@@ -41,6 +41,30 @@ const tests = [
     expectSaveEnds: false, // no save DC pattern, no duration
     expectRounds: null,
   },
+  {
+    name: 'Poisoned for 1 minute (timed duration)',
+    text: 'Poison Breath (Recharge 5-6). The creature exhales a 30-foot cone of poisonous gas. Each creature in the area must make a DC 11 Constitution saving throw, taking 5d8 poison damage on a failed save, or half as much on a successful one. A creature that fails is also poisoned for 1 minute.',
+    expectCondition: 'poisoned',
+    expectSaveEnds: true,
+    expectSeconds: 60,
+    expectRounds: null, // should use seconds, not rounds
+  },
+  {
+    name: 'Frightened for 1 hour',
+    text: 'Terrifying Roar. Each creature within 30 feet must succeed on a DC 15 Wisdom saving throw or be frightened for 1 hour.',
+    expectCondition: 'frightened',
+    expectSaveEnds: true,
+    expectSeconds: 3600,
+    expectRounds: null,
+  },
+  {
+    name: 'Stunned for 2 rounds',
+    text: 'Psychic Blast. The target must succeed on a DC 14 Intelligence saving throw or be stunned for 2 rounds.',
+    expectCondition: 'stunned',
+    expectSaveEnds: true,
+    expectSeconds: null,
+    expectRounds: 2,
+  },
 ];
 
 let pass = 0;
@@ -52,7 +76,8 @@ for (const t of tests) {
     e => e.statuses && e.statuses.includes(t.expectCondition)
   );
 
-  const rounds = eff ? eff.duration.rounds : null;
+  const rounds = eff ? (eff.duration.rounds || null) : null;
+  const seconds = eff ? (eff.duration.seconds || null) : null;
   const condFound = !!eff;
 
   console.log(`\n${t.name}:`);
@@ -69,14 +94,22 @@ for (const t of tests) {
   } else {
     const saveEnds = r.original.parsed.conditions.find(c => c.type === t.expectCondition);
     console.log(`  Condition found: ${t.expectCondition}`);
-    console.log(`  saveEnds=${saveEnds ? saveEnds.saveEnds : '?'}, duration.rounds=${rounds}`);
+    console.log(`  saveEnds=${saveEnds ? saveEnds.saveEnds : '?'}, duration.rounds=${rounds}, duration.seconds=${seconds}`);
     console.log(`  DAE specialDuration: ${JSON.stringify(eff.flags.dae.specialDuration)}`);
+    if (saveEnds && saveEnds.timedDuration) {
+      console.log(`  timedDuration: ${JSON.stringify(saveEnds.timedDuration)}`);
+    }
 
-    if (rounds === t.expectRounds) {
-      console.log(`  [+] PASS: rounds=${rounds} (expected ${t.expectRounds})`);
+    // Check seconds if expected
+    const expectSeconds = t.expectSeconds !== undefined ? t.expectSeconds : null;
+    const roundsOk = rounds === t.expectRounds;
+    const secondsOk = expectSeconds === null ? true : seconds === expectSeconds;
+
+    if (roundsOk && secondsOk) {
+      console.log(`  [+] PASS: rounds=${rounds} seconds=${seconds} (expected rounds=${t.expectRounds} seconds=${expectSeconds})`);
       pass++;
     } else {
-      console.log(`  [-] FAIL: rounds=${rounds} (expected ${t.expectRounds})`);
+      console.log(`  [-] FAIL: rounds=${rounds} seconds=${seconds} (expected rounds=${t.expectRounds} seconds=${expectSeconds})`);
       fail++;
     }
   }
