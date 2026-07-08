@@ -1,0 +1,1325 @@
+{
+  "name": "Shade",
+  "img": "https://assets.forge-vtt.com/62312552803a3a0dd1d8fd77/DnDBeyond/wel/listing_images/638512254234976678.png?1775174032563",
+  "type": "npc",
+  "folder": "3psKYiVbv17I2GDb",
+  "flags": {
+    "ddb": {
+      "monsterId": 4485995
+    },
+    "forge-compendium-browser": {
+      "path": "Monsters%20%7C%20S"
+    }
+  },
+  "items": [
+    {
+      "name": "Incorporeal Movement",
+      "img": "icons/magic/air/air-wave-gust-blue.webp",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "ZmQ5MWUxYWRkMTAz",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Incorporeal Movement</em>. The shade can move through other creatures and objects as if they were difficult terrain. The shade is destroyed if they end their turn inside an object.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Shade",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Minion",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        },
+        "dae": {
+          "macro": {
+            "name": "Minion",
+            "img": "icons/svg/skull.svg",
+            "type": "script",
+            "scope": "global",
+            "command": "if (args[0].macroPass !== \"preTargetDamageApplication\") return;\nconst workflow = args[0].workflow ?? MidiQOL.Workflow.getWorkflow(args[0].uuid);\nconst di = args[0].damageItem;\nif (!workflow || !di) return;\n\nconst token = canvas.tokens.get(di.tokenId) ?? canvas.tokens.placeables.find(t => t.actor?.uuid === di.actorUuid);\nconst actor = token?.actor;\nif (!actor) return;\n\nconst fromAttack = !!workflow.activity?.attack && (workflow.hitTargets?.has(token) || workflow.hitTargetsEC?.has(token));\nconst failedSave = !!workflow.activityHasSave && Array.from(workflow.failedSaves ?? []).some(t => t.actor?.uuid === di.actorUuid);\n\nconst setHP = (hp) => {\n  const oldHP = di.oldHP ?? actor.system.attributes.hp.value;\n  di.newHP = hp;\n  di.hpDamage = oldHP - hp;\n  di.totalDamage = di.hpDamage;\n  di.appliedDamage = di.hpDamage;\n  di.newTempHP = 0;\n};\n\nif (fromAttack || failedSave) {\n  setHP(0);  // minion drops to 0 from any attack or failed save\n} else {\n  const max = actor.system.attributes.hp.max ?? 0;\n  const incoming = Math.abs(Number(di.totalDamage ?? di.hpDamage ?? 0));\n  if (incoming >= max) setHP(0); else setHP(di.oldHP ?? actor.system.attributes.hp.value);\n}"
+          }
+        }
+      },
+      "effects": [
+        {
+          "_id": "ShadeMinion00001",
+          "name": "Minion",
+          "img": "icons/svg/skull.svg",
+          "changes": [
+            {
+              "key": "flags.midi-qol.onUseMacroName",
+              "mode": 0,
+              "value": "[preTargetDamageApplication]ItemMacro.Minion",
+              "priority": 20
+            }
+          ],
+          "disabled": false,
+          "duration": {},
+          "description": "<p>Minion: damage from an attack or failed save reduces the shade to 0 HP. Damage from another effect kills the shade only if it equals or exceeds their HP maximum; otherwise they take no damage.</p>",
+          "origin": null,
+          "transfer": true,
+          "statuses": [],
+          "flags": {}
+        }
+      ],
+      "_id": "OWEyOWIzNzg5YTBj",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Minion.</em> If the shade takes damage from an attack or as the result of a failed saving throw, their hit points are reduced to 0. If the shade takes damage from another effect, they die if the damage equals or exceeds their hit point maximum; otherwise they take no damage.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Shade",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Terrifying",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "ZThjMjdkZDBhODBi",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Terrifying.</em> If an enemy starts their turn within 5 feet of three or more shades, the enemy must succeed on a Wisdom saving throw or be @Compendium[dndbeyond-wel.journal.YTRlYjQyYWY3Mjk0]{frightened} of the shades until the start of their next turn. The DC for this saving throw equals 10 plus the number of shades within 5 feet of the enemy. On a successful save, the enemy is immune to the Terrifying trait of all shades for the next 24 hours.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Shade",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Dazed Immunity",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "ZTc2ZWM0MWU2MzM0",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><strong>Dazed Immunity.</strong> The shade can't be dazed.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Shade",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Challenge",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "ZDdkM2IwMTBmMDNi",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Challenge.</em> The shade is CR 1 (40 XP). Their proficiency bonus +2.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Shade",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Life Drain (Group Attack). Melee Spell Attack:",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "weapon",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "MTc4N2E1NmY0NjYx",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Life Drain (Group Attack). Melee Spell Attack:</em> [[/roll +4]] to hit, reach 5 ft., one creature. Hit: 1 necrotic damage.<em></em></p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Shade",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "range": {
+          "value": 5,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "base": {
+            "types": [],
+            "custom": {
+              "enabled": false
+            },
+            "scaling": {
+              "number": 1
+            }
+          }
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "attuned": false,
+        "attunement": "",
+        "equipped": true,
+        "rarity": "",
+        "identified": true,
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "properties": [],
+        "proficient": 1,
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "attack",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "value": "5",
+              "units": "ft",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "attack": {
+              "ability": "",
+              "bonus": "",
+              "critical": {},
+              "flat": false,
+              "type": {
+                "value": "melee",
+                "classification": "spell"
+              }
+            },
+            "damage": {
+              "critical": {},
+              "includeBase": true,
+              "parts": []
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "",
+            "otherActivityAsParentType": true,
+            "attackMode": "oneHanded",
+            "ammunition": "",
+            "otherActivityUuid": "",
+            "attackRollPerTarget": "default",
+            "fumbleThreshold": 1,
+            "img": null
+          }
+        },
+        "identifier": "",
+        "container": null,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {}
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "undermountain",
+      "uuid": "Actor.nYyo3XyhgRcGooqY",
+      "coreVersion": "13.351",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    },
+    "coreVersion": "13.351",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.0",
+    "createdTime": 1775173883895,
+    "modifiedTime": 1775174033098,
+    "lastModifiedBy": "NZmI8rSlJ07V2IVr"
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 1,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "dex": {
+        "value": 13,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "con": {
+        "value": 10,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "int": {
+        "value": 10,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "wis": {
+        "value": 10,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "cha": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "flat": 11,
+        "calc": "flat",
+        "formula": ""
+      },
+      "hp": {
+        "value": 8,
+        "max": 8,
+        "temp": null,
+        "tempmax": null,
+        "formula": "2d8 - 1"
+      },
+      "init": {
+        "bonus": "0",
+        "ability": "",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "movement": {
+        "burrow": "0",
+        "climb": "0",
+        "fly": "50",
+        "swim": "0",
+        "walk": "0",
+        "units": "ft",
+        "hover": true,
+        "ignoredDifficultTerrain": []
+      },
+      "senses": {
+        "units": "ft",
+        "special": "",
+        "ranges": {
+          "darkvision": 60,
+          "blindsight": 0,
+          "tremorsense": 0,
+          "truesight": 0
+        }
+      },
+      "spellcasting": "0",
+      "spell": {
+        "level": 0
+      },
+      "attunement": {
+        "max": 3
+      },
+      "exhaustion": 0,
+      "concentration": {
+        "ability": "",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "save": ""
+        },
+        "limit": 1
+      },
+      "loyalty": {},
+      "hd": {
+        "spent": 0
+      },
+      "death": {
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "success": 0,
+        "failure": 0,
+        "bonuses": {
+          "save": ""
+        }
+      },
+      "price": {
+        "value": null,
+        "denomination": "gp"
+      }
+    },
+    "details": {
+      "biography": {
+        "value": "<p><em>These aren’t your regular ghosts. They cling to this world, determined to take as many of the living with them as possible before they’re destroyed.</em></p>\n<p><strong>Racaar, Mystic Theurge of the Restless Order</strong></p>\n<p>Shadows. Specters. Wraiths. Spectral undead come in many forms. One might be formed by a person’s vile actions in life, while another could be a soul lost to a necromancer’s dark art. Powerful undead can even manifest these shadowy beings into existence through sheer will. Regardless of how they come to be, spectral undead are malice incarnate.</p>\n<p><em>What They Can’t Have.</em> All spectral undead yearn for something only the living can provide. @Compendium[dndbeyond-wel.actors.YTIxOGRlNGI1OTFm]{Specters} and their lesser kindred, shades, vaguely remember their lives— and they’re murderously envious of those who haven’t lost theirs. @Compendium[dndbeyond-wel.actors.OGFmMzVlZTY1Mjcy]{Shadows} want to drain living things of physical warmth and vitality (and the less tainted by evil their quarry is, the better). Meanwhile, @UUID[Actor.05kYFJVn4Gq5JY6I]{wraiths} greedily devour the living to taste their life essence.</p>\n<p><em>Drawn to the Living.</em> Spectral undead who naturally formed from the souls of malicious, hate-filled humanoids usually haunt the places where they died, while those manifested by another being serve their creator. Left to their own devices, spectral undead stop at nothing to slaughter living creatures they encounter. Some even leave the places they haunt to stalk their quarry over miles of wilderness.</p>",
+        "public": "<p><em>These aren’t your regular ghosts. They cling to this world, determined to take as many of the living with them as possible before they’re destroyed.</em></p>\n<p><strong>Racaar, Mystic Theurge of the Restless Order</strong></p>\n<p>Shadows. Specters. Wraiths. Spectral undead come in many forms. One might be formed by a person’s vile actions in life, while another could be a soul lost to a necromancer’s dark art. Powerful undead can even manifest these shadowy beings into existence through sheer will. Regardless of how they come to be, spectral undead are malice incarnate.</p>\n<p><em>What They Can’t Have.</em> All spectral undead yearn for something only the living can provide. <a>Specters</a> and their lesser kindred, shades, vaguely remember their lives— and they’re murderously envious of those who haven’t lost theirs. <a>Shadows</a> want to drain living things of physical warmth and vitality (and the less tainted by evil their quarry is, the better). Meanwhile, <a>wraiths</a> greedily devour the living to taste their life essence.</p>\n<p><em>Drawn to the Living.</em> Spectral undead who naturally formed from the souls of malicious, hate-filled humanoids usually haunt the places where they died, while those manifested by another being serve their creator. Left to their own devices, spectral undead stop at nothing to slaughter living creatures they encounter. Some even leave the places they haunt to stalk their quarry over miles of wilderness.</p>"
+      },
+      "alignment": "Typically Chaotic Evil",
+      "race": "Minion, Incorporeal",
+      "type": {
+        "value": "undead"
+      },
+      "cr": 1,
+      "habitat": {
+        "custom": "",
+        "value": []
+      },
+      "ideal": "",
+      "bond": "",
+      "flaw": "",
+      "treasure": {
+        "value": []
+      }
+    },
+    "skills": {
+      "acr": {
+        "value": 0,
+        "ability": "dex",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ani": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "arc": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ath": {
+        "value": 0,
+        "ability": "str",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "dec": {
+        "value": 0,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "his": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ins": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "itm": {
+        "value": 0,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "inv": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "med": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "nat": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prc": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prf": {
+        "value": 0,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "per": {
+        "value": 0,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "rel": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "slt": {
+        "value": 0,
+        "ability": "dex",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ste": {
+        "value": 0,
+        "ability": "dex",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "sur": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [
+          "poison",
+          "necrotic"
+        ],
+        "custom": "",
+        "bypasses": []
+      },
+      "dr": {
+        "value": [],
+        "custom": "",
+        "bypasses": []
+      },
+      "dv": {
+        "value": [],
+        "custom": "",
+        "bypasses": []
+      },
+      "ci": {
+        "value": [
+          "charmed",
+          "exhaustion",
+          "grappled",
+          "paralyzed",
+          "petrified",
+          "poisoned",
+          "prone",
+          "restrained",
+          "unconscious"
+        ],
+        "custom": ""
+      },
+      "languages": {
+        "value": [],
+        "custom": "the languages they knew in life",
+        "communication": {}
+      },
+      "dm": {
+        "amount": {},
+        "bypasses": []
+      },
+      "important": false
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "spells": {
+      "pact": {
+        "value": 0,
+        "override": null
+      },
+      "spell1": {
+        "value": 0,
+        "override": null
+      },
+      "spell2": {
+        "value": 0,
+        "override": null
+      },
+      "spell3": {
+        "value": 0,
+        "override": null
+      },
+      "spell4": {
+        "value": 0,
+        "override": null
+      },
+      "spell5": {
+        "value": 0,
+        "override": null
+      },
+      "spell6": {
+        "value": 0,
+        "override": null
+      },
+      "spell7": {
+        "value": 0,
+        "override": null
+      },
+      "spell8": {
+        "value": 0,
+        "override": null
+      },
+      "spell9": {
+        "value": 0,
+        "override": null
+      }
+    },
+    "resources": {
+      "legact": {
+        "max": 0,
+        "spent": 0
+      },
+      "legres": {
+        "max": 0,
+        "spent": 0
+      },
+      "lair": {
+        "value": false,
+        "initiative": 0,
+        "inside": false
+      }
+    },
+    "bonuses": {
+      "mwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "msak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rsak": {
+        "attack": "",
+        "damage": ""
+      },
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "spell": {
+        "dc": ""
+      }
+    },
+    "source": {
+      "custom": "WEL p.246",
+      "revision": 1,
+      "rules": "2024"
+    },
+    "tools": {}
+  },
+  "prototypeToken": {
+    "flags": {},
+    "name": "Shade",
+    "displayName": 0,
+    "width": 1,
+    "height": 1,
+    "rotation": 0,
+    "lockRotation": false,
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "randomImg": false,
+    "light": {
+      "dim": 0,
+      "bright": 0,
+      "angle": 360,
+      "alpha": 1,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "type": null,
+        "reverse": false
+      },
+      "negative": false,
+      "priority": 0,
+      "color": null,
+      "coloration": 1,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "texture": {
+      "src": "https://assets.forge-vtt.com/62312552803a3a0dd1d8fd77/tokenizer/npc-images/shade.Token.webp?1775174032563",
+      "tint": "#ffffff",
+      "scaleX": 1,
+      "scaleY": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "rotation": 0,
+      "alphaThreshold": 0.75
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 60,
+      "brightness": 0,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "appendNumber": false,
+    "prependAdjective": false,
+    "alpha": 1,
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null
+  },
+  "ownership": {
+    "default": 0
+  }
+}

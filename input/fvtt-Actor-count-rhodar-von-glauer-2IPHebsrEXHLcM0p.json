@@ -1,0 +1,2517 @@
+{
+  "name": "Count Rhodar von Glauer",
+  "img": "https://assets.forge-vtt.com/62312552803a3a0dd1d8fd77/DnDBeyond/wel/listing_images/638512253763392492.jpeg",
+  "type": "npc",
+  "folder": "3STtLkno85nR4An4",
+  "flags": {
+    "ddb": {
+      "monsterId": 4485809
+    },
+    "forge-compendium-browser": {
+      "path": "Monsters%20%7C%20C"
+    }
+  },
+  "items": [
+    {
+      "name": "Resting Place",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "ODU4NDM3MzVmMzE5",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Resting Place.</em> When Rhodar drops to 0 hit points and isn’t in his resting place, he teleports to his resting place. While in his resting place, Rhodar is stable. After spending 1 hour in his resting place with 0 hit points, he regains 1 hit point.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Spear Sacrifice (3/Day)",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "MTUyY2UxZjA4OTYz",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Spear Sacrifice (3/Day).</em> Rhodar is surrounded by three floating spears of shimmering darkness, which he can summon to a free hand on his turn (no action required). When Rhodar fails an ability check or saving throw, he can choose to destroy one of these spears and succeed on the ability check or saving throw instead. Once Rhodar destroys all three spears, he can’t use his Spear of the Damned attack or Spear Sacrifice until the next dusk, when he manifests any destroyed spears.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Flanked Immunity",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "NzkxMWJhNjdmNGVi",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><strong>Flanked Immunity.</strong> Rhodar can't be flanked.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Multiattack",
+      "img": "icons/skills/melee/blade-tips-triple-steel.webp",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "NTYwNDRhMjIyMDQ1",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Multiattack.</em> Rhodar makes two Sanguinus attacks, and he can make one Spear of the Damned attack for each Spear Sacrifice use he has remaining.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "none",
+            "otherActivityAsParentType": true,
+            "img": null
+          }
+        },
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Sanguinus. Melee Weapon Attack:",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "weapon",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "OWUzNTg4OWFkNmI2",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Sanguinus. Melee Weapon Attack:</em> [[/roll +12]] to hit, reach 5 ft., one target. Hit: 13 [[/roll (2d6 + 6)]] slashing damage plus 14 [[/roll (4d6)]] necrotic damage. If the ta<em>rget</em> is a creature, their hit point maximum is reduced by a number equal to the necrotic damage taken, and Rhodar regains hit points equal to that number. This reduction lasts until reversed by a cure ailment power of 4th order or higher, a @Compendium[dndbeyond-wel.items.ZjkwZDMzYjUzOGU0]{greater restoration} spell, or a similar supernatural effect. The target dies if this effect reduces their hit point maximum to 0. A humanoid slain in this way rises the following midnight as a @Compendium[dndbeyond-wel.actors.ZDAwYTA4NzFjMTI2]{vampire spawn} under Rhodar’s control.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "range": {
+          "value": 5,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "base": {
+            "number": 2,
+            "denomination": 6,
+            "bonus": "6",
+            "types": [
+              "slashing"
+            ],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "attuned": false,
+        "attunement": "",
+        "equipped": true,
+        "rarity": "",
+        "identified": true,
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "properties": [],
+        "proficient": 1,
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "attack",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "value": "5",
+              "units": "ft",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "attack": {
+              "ability": "",
+              "bonus": "",
+              "critical": {},
+              "flat": false,
+              "type": {
+                "value": "melee",
+                "classification": "weapon"
+              }
+            },
+            "damage": {
+              "critical": {},
+              "includeBase": true,
+              "parts": [
+                {
+                  "number": 4,
+                  "denomination": 6,
+                  "bonus": "",
+                  "types": [
+                    "necrotic"
+                  ],
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  },
+                  "scaling": {
+                    "mode": "whole",
+                    "number": null,
+                    "formula": ""
+                  }
+                }
+              ]
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "",
+            "otherActivityAsParentType": true,
+            "attackMode": "oneHanded",
+            "ammunition": "",
+            "otherActivityUuid": "",
+            "attackRollPerTarget": "default",
+            "fumbleThreshold": 1,
+            "img": null
+          }
+        },
+        "identifier": "",
+        "container": null,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {}
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Spear of the Damned. Ranged Spell Attack:",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "weapon",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "ZGJiNGI5OGFhNDE2",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Spear of the Damned. Ranged Spell Attack:</em> [[/roll +12]] to hit, range 60 ft., one target. Hit: 10 [[/roll (3d6)]] force damage, and if the target is a creature, they are knocked @Compendium[dndbeyond-wel.journal.NTQxM2MyOWQ5MmFk]{prone} <em>and </em>@Compendium[dndbeyond-wel.journal.ODJhMjkwYWFkMzg4]{restrained} as a spear of darkness impales them. A creature can attempt to free themself or another creature within their reach by using an action or a bonus action to make a DC 20 Strength (@Compendium[dndbeyond-wel.journal.NTc2NzFjMDg2Mjk3]{Athletics}) check. On a success, the creature is freed and the restrained condition ends for them. The creature is also freed if Rhodar summons that spear to attack another target or destroys it using Spear Sacrifice.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "range": {
+          "value": 60,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "damage": {
+          "versatile": {
+            "number": null,
+            "denomination": null,
+            "bonus": "",
+            "types": [],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          },
+          "base": {
+            "number": 3,
+            "denomination": 6,
+            "bonus": "",
+            "types": [
+              "force"
+            ],
+            "custom": {
+              "enabled": false,
+              "formula": ""
+            },
+            "scaling": {
+              "mode": "",
+              "number": null,
+              "formula": ""
+            }
+          }
+        },
+        "quantity": 1,
+        "weight": {
+          "value": 0,
+          "units": "lb"
+        },
+        "price": {
+          "value": 0,
+          "denomination": "gp"
+        },
+        "attuned": false,
+        "attunement": "",
+        "equipped": true,
+        "rarity": "",
+        "identified": true,
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "properties": [],
+        "proficient": 1,
+        "unidentified": {
+          "description": ""
+        },
+        "type": {
+          "value": "natural",
+          "baseItem": ""
+        },
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "attack",
+            "activation": {
+              "type": "action",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "value": "60",
+              "units": "ft",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "attack": {
+              "ability": "",
+              "bonus": "",
+              "critical": {},
+              "flat": false,
+              "type": {
+                "value": "ranged",
+                "classification": "spell"
+              }
+            },
+            "damage": {
+              "critical": {},
+              "includeBase": true,
+              "parts": []
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "",
+            "otherActivityAsParentType": true,
+            "attackMode": "oneHanded",
+            "ammunition": "",
+            "otherActivityUuid": "",
+            "attackRollPerTarget": "default",
+            "fumbleThreshold": 1,
+            "img": null
+          }
+        },
+        "identifier": "",
+        "container": null,
+        "crew": {
+          "value": []
+        },
+        "ammunition": {}
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Withering Stare",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "MTQyYmY0ZjVhZWIz",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><em>Withering Stare.</em> When Rhodar is hit by an attack by a creature he can see within 60 feet of him, his eyes bore into the creature. The target must succeed on a DC 20 Wisdom saving throw or take 10 [[/roll (3d6)]] necrotic damage.</p>\n<h3>Villain Actions</h3>\n<p>Rhodar has three villain actions. He can take each action once during an encounter after an enemy’s turn. He can take these actions in any order but can use only one per round.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "save",
+            "activation": {
+              "type": "reaction",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "damage": {
+              "onSave": "half",
+              "parts": [
+                {
+                  "number": 3,
+                  "denomination": 6,
+                  "bonus": "",
+                  "types": [
+                    "necrotic"
+                  ],
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  },
+                  "scaling": {
+                    "mode": "whole",
+                    "number": null,
+                    "formula": ""
+                  }
+                }
+              ],
+              "critical": {
+                "allow": false
+              }
+            },
+            "save": {
+              "ability": [
+                "wis"
+              ],
+              "dc": {
+                "calculation": "",
+                "formula": "20"
+              }
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "",
+            "otherActivityAsParentType": true,
+            "friendlySave": "default",
+            "img": null
+          }
+        },
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Action 1: Bloodstained",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "NzY1YjIzYzc0MWMy",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><strong>Action 1: Bloodstained.</strong> Rhodar causes blood to explode in a 20-foot-radius sphere centered on a point he can see within 120 feet of him. Creatures who aren’t Undead in that area must succeed on a DC 20 Dexterity saving throw or be bloodstained until the end of Rhodar’s next turn. Rhodar has advantage on attack rolls against bloodstained creatures, and bloodstained creatures have disadvantage on saving throws against Rhodar’s Beguile bonus action.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "save",
+            "activation": {
+              "type": "reaction",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "sphere",
+                "size": "20",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "damage": {
+              "onSave": "half",
+              "parts": [],
+              "critical": {
+                "allow": false
+              }
+            },
+            "save": {
+              "ability": [
+                "dex"
+              ],
+              "dc": {
+                "calculation": "",
+                "formula": "20"
+              }
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "",
+            "otherActivityAsParentType": true,
+            "friendlySave": "default",
+            "img": null
+          }
+        },
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Action 2: Fire Drake",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "NDVkM2Y2N2ZkZDBh",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><strong>Action 2: Fire Drake.</strong> Rhodar, along with anything he is wearing or carrying, turns into a Large dragon made of fire. When he does, he releases any creature he was grappling, and if Rhodar was @Compendium[dndbeyond-wel.journal.YzVhYjRiOGQ2MGZm]{grappled} or @Compendium[dndbeyond-wel.journal.ODJhMjkwYWFkMzg4]{restrained}, that effect ends for him. He then flies up to twice his speed to an unoccupied space. During this move, Rhodar ignores difficult terrain, doesn’t provoke @Compendium[dndbeyond-wel.journal.MDFlMWM1NWVhNWY0]{opportunity attacks}, and can move through creatures and objects. Each creature Rhodar passes through must make a DC 20 Dexterity saving throw, taking 36 [[/roll (8d8)]] fire damage on a failed save, or half as much damage on a successful one. At the end of this movement, Rhodar transforms back into his previous form.</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "save",
+            "activation": {
+              "type": "reaction",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "damage": {
+              "onSave": "half",
+              "parts": [
+                {
+                  "number": 8,
+                  "denomination": 8,
+                  "bonus": "",
+                  "types": [
+                    "fire"
+                  ],
+                  "custom": {
+                    "enabled": false,
+                    "formula": ""
+                  },
+                  "scaling": {
+                    "mode": "whole",
+                    "number": null,
+                    "formula": ""
+                  }
+                }
+              ],
+              "critical": {
+                "allow": false
+              }
+            },
+            "save": {
+              "ability": [
+                "dex"
+              ],
+              "dc": {
+                "calculation": "",
+                "formula": "20"
+              }
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "",
+            "otherActivityAsParentType": true,
+            "friendlySave": "default",
+            "img": null
+          }
+        },
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Action 3: Mist of Blades",
+      "img": "icons/svg/mystery-man.svg",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "MDExNzQxNTVjOTk4",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<p><strong>Action 3: Mist of Blades.</strong> Rhodar fills the area within 60 feet of him with thick swirling mists, heavily obscuring that area for other creatures. He can teleport up to four times into any unoccupied space in the mist and make one Sanguinus attack after each teleport. The mist dissipates at the end of this action.</p>\n<h3>Utility Spells</h3>\n<p>In addition to any other spells in this stat block, Rhodar can cast the following spells, using Charisma as the spellcasting ability (spell save DC 20):</p>\n<p>At will: @Compendium[dndbeyond-wel.items.OTczMjUwODBiNzdl]{charm person} ᴬ, @Compendium[dndbeyond-wel.items.NDg3ZWEzMzAzYjUy]{detect thoughts} ᴬ, @Compendium[dndbeyond-wel.items.MGJkMWExMjRiMjRk]{disguise self} ᴬ, @Compendium[dndbeyond-wel.items.NzFmYTFkOTlmMDgy]{sending} ᴬ</p>\n<p>3/day each: @Compendium[dndbeyond-wel.items.M2JiOWRiZmU3OWQ0]{clairvoyance} ⁺, @Compendium[dndbeyond-wel.items.OWYxNzQ1NTEyOGU1]{geas} (at 9th level) ⁺, @Compendium[dndbeyond-wel.items.NDI5ZjdhOTViZGQx]{legend lore} ⁺</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {
+          "dnd5eactivity000": {
+            "_id": "dnd5eactivity000",
+            "type": "utility",
+            "activation": {
+              "type": "reaction",
+              "value": 1,
+              "condition": "",
+              "override": false
+            },
+            "consumption": {
+              "targets": [],
+              "scaling": {
+                "allowed": false,
+                "max": ""
+              },
+              "spellSlot": true
+            },
+            "description": {
+              "chatFlavor": ""
+            },
+            "duration": {
+              "concentration": false,
+              "units": "inst",
+              "special": "",
+              "override": false
+            },
+            "effects": [],
+            "range": {
+              "units": "self",
+              "special": "",
+              "override": false
+            },
+            "target": {
+              "template": {
+                "count": "",
+                "contiguous": false,
+                "type": "",
+                "size": "",
+                "width": "",
+                "height": "",
+                "units": "ft",
+                "stationary": false
+              },
+              "affects": {
+                "count": "",
+                "type": "",
+                "choice": false,
+                "special": ""
+              },
+              "prompt": true,
+              "override": false
+            },
+            "uses": {
+              "spent": 0,
+              "max": "",
+              "recovery": []
+            },
+            "roll": {
+              "formula": "",
+              "name": "",
+              "prompt": false,
+              "visible": false
+            },
+            "sort": 0,
+            "flags": {},
+            "visibility": {
+              "level": {},
+              "requireAttunement": false,
+              "requireIdentification": false,
+              "requireMagic": false
+            },
+            "useConditionText": "",
+            "useConditionReason": "",
+            "effectConditionText": "",
+            "macroData": {
+              "name": "",
+              "command": ""
+            },
+            "ignoreTraits": {
+              "idi": false,
+              "idr": false,
+              "idv": false,
+              "ida": false,
+              "idm": false
+            },
+            "midiProperties": {
+              "ignoreTraits": [],
+              "triggeredActivityId": "none",
+              "triggeredActivityConditionText": "",
+              "triggeredActivityTargets": "targets",
+              "triggeredActivityRollAs": "self",
+              "autoConsume": false,
+              "forceConsumeDialog": "default",
+              "forceRollDialog": "default",
+              "forceDamageDialog": "default",
+              "confirmTargets": "default",
+              "autoTargetType": "any",
+              "autoTargetAction": "default",
+              "automationOnly": false,
+              "otherActivityCompatible": true,
+              "otherActivityAsParentType": true,
+              "identifier": "",
+              "displayActivityName": false,
+              "rollMode": "default",
+              "chooseEffects": false,
+              "toggleEffect": false,
+              "ignoreFullCover": false,
+              "removeChatButtons": "default",
+              "magicEffect": false,
+              "magicDamage": false,
+              "noConcentrationCheck": false,
+              "autoCEEffects": "default",
+              "triggeredActivityConsume": true,
+              "triggeredActivityConfigure": true,
+              "skipConcentrationCheck": false
+            },
+            "isOverTimeFlag": false,
+            "overTimeProperties": {
+              "saveRemoves": true,
+              "preRemoveConditionText": "",
+              "postRemoveConditionText": "",
+              "rollAs": "target"
+            },
+            "otherActivityId": "none",
+            "otherActivityAsParentType": true,
+            "img": null
+          }
+        },
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Lair Actions",
+      "img": "icons/magic/nature/stealth-hide-eyes-green.webp",
+      "type": "feat",
+      "sort": 100000,
+      "flags": {
+        "dnd5e": {
+          "migratedUses": 0
+        }
+      },
+      "effects": [],
+      "_id": "YjM2ZDI3YzA0ODMx",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "dnd5e",
+        "systemVersion": "5.3.0",
+        "lastModifiedBy": null
+      },
+      "system": {
+        "description": {
+          "value": "<h3>Lair Actions</h3>\n<p>When fighting inside his lair, Rhodar can take lair actions. On initiative count 20 (losing initiative ties), Rhodar can take one lair action to cause one of the following effects; he can’t use the same lair action two rounds in a row:</p>\n<p><strong>Children of the Night.</strong> A swarm of bats and insects flies around Rhodar, moving with him. The area within 30 feet of him is heavily obscured for other creatures until the end of initiative count 20 on the next round.</p>\n<p><strong>Blood Rain.</strong> Rhodar chooses a point he can see within 60 feet of him. Blood rains down in a 40-foot-high, 10-foot-radius cylinder centered on this point until the end of initiative count 20 on the next round. When a creature who isn’t Undead in the cylinder takes necrotic damage, they take an extra 5 [[/roll (1d10)]] necrotic damage.</p>\n<p><strong>Obey My Desire.</strong> Rhodar exerts his will on those who surround him. Each creature within 60 feet of Rhodar who can hear him must succeed on a DC 18 Wisdom saving throw or be @Compendium[dndbeyond-wel.journal.MjZiMDUyZDdlZGNi]{charmed} by him until the end of this turn. Each charmed creature must immediately use their reaction, if available, to make a melee attack against another creature, to make a melee attack against themself, or to drop @Compendium[dndbeyond-wel.journal.NTQxM2MyOWQ5MmFk]{prone} (Rhodar’s choice).</p>",
+          "chat": ""
+        },
+        "source": {
+          "custom": "Count Rhodar von Glauer",
+          "revision": 1,
+          "rules": "2024"
+        },
+        "uses": {
+          "max": "0",
+          "spent": 0,
+          "recovery": []
+        },
+        "requirements": "",
+        "activities": {},
+        "advancement": {},
+        "identifier": "",
+        "crewed": false,
+        "enchant": {},
+        "prerequisites": {
+          "items": [],
+          "repeatable": false
+        },
+        "properties": [],
+        "type": {
+          "value": "",
+          "subtype": ""
+        }
+      },
+      "folder": null,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "undermountain",
+      "uuid": "Actor.2IPHebsrEXHLcM0p",
+      "coreVersion": "13.351",
+      "systemId": "dnd5e",
+      "systemVersion": "5.3.3"
+    },
+    "coreVersion": "13.351",
+    "systemId": "dnd5e",
+    "systemVersion": "5.3.0",
+    "createdTime": 1775173883895,
+    "modifiedTime": 1775173883895,
+    "lastModifiedBy": "NZmI8rSlJ07V2IVr"
+  },
+  "system": {
+    "abilities": {
+      "str": {
+        "value": 23,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "dex": {
+        "value": 20,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "con": {
+        "value": 18,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "int": {
+        "value": 20,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "wis": {
+        "value": 17,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      },
+      "cha": {
+        "value": 22,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        },
+        "save": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        },
+        "max": null,
+        "check": {
+          "roll": {
+            "min": null,
+            "max": null,
+            "mode": 0
+          }
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "flat": 18,
+        "calc": "flat",
+        "formula": ""
+      },
+      "hp": {
+        "value": 289,
+        "max": 289,
+        "temp": 0,
+        "tempmax": 0,
+        "formula": "34d8 + 136"
+      },
+      "init": {
+        "bonus": "0",
+        "ability": "",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        }
+      },
+      "movement": {
+        "burrow": "0",
+        "climb": "0",
+        "fly": "30",
+        "swim": "0",
+        "walk": "30",
+        "units": "ft",
+        "hover": false,
+        "ignoredDifficultTerrain": []
+      },
+      "senses": {
+        "units": "ft",
+        "special": "",
+        "ranges": {
+          "darkvision": 120,
+          "blindsight": 60,
+          "tremorsense": 0,
+          "truesight": 0
+        }
+      },
+      "spellcasting": "0",
+      "spell": {
+        "level": 0
+      },
+      "attunement": {
+        "max": 3
+      },
+      "exhaustion": 0,
+      "concentration": {
+        "ability": "",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "save": ""
+        },
+        "limit": 1
+      },
+      "loyalty": {},
+      "hd": {
+        "spent": 0
+      },
+      "death": {
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "success": 0,
+        "failure": 0,
+        "bonuses": {
+          "save": ""
+        }
+      },
+      "price": {
+        "value": null,
+        "denomination": "gp"
+      }
+    },
+    "details": {
+      "biography": {
+        "value": "<p><em>I do the devil’s work.</em></p>\n<p><strong>Motto of House von Glauer</strong></p>\n<p>After falling to a vampiric curse in his early twenties, Count Rhodar—the last Lord of Glauer—ruled his tiny, heavily forested mountainous county in eastern Rhöl for three hundred years. There were worse overlords, the people said. After all, Rhodar took his pact with the people and the land seriously. He aggressively defended the villages in his demesne against constant incursions from rival counts and barons. He believed his power waxed and waned with the prosperity of the people and the vitality of the land.</p>\n<p>Each new moon, when the Red Tax came due, the count would visit a young candidate, then emerge with renewed vitality. Across the land, folk feared their Dragon Count, but the witches of the wood wove a prophecy: “The land’s darkest hour shall be the redemption of House von Glauer.”</p>\n<p>Eventually, the conquering force of Emperor Gaius VIII came for Rhodar—not because he was a vampire, but because the empire wanted his land and people. Count von Glauer was staked, and his body burned to ash. The emperor kept the Rod of Count Rhodar von Glauer as a trophy, and with this symbol of authority, he sealed his claim to the land.</p>\n<p>Under new rule, Rhodar’s people lament the absence of their lord, recalling the time before the coming of the empire as a golden age. But the witches’ whispers can still be heard. For as long as the people of Glauer persist, they continue believing their Dragon Count will return in their darkest hour to deliver them from tyranny.</p>\n<h3>Vampires</h3>\n<p><em>They look like us. Sometimes they even act like us. But they are not like us.</em></p>\n<p><strong>Lydia Lockwood, Occultist</strong></p>\n<p>Vampirism is a curse of blood. A curse that harrows its victims, turning them into mirror-mockeries of life. They become beings of pure vitality that nonetheless hunger for life’s essence: blood. With that hunger comes power everlasting over life and death. By feeding, a @UUID[Actor.FJDvF1wmZ7KXdCCU]{vampire} passes this curse onto their victims. Though vampires are fundamentally changed from their mortal forms, they retain the intellect and memories of their mortal selves.</p>\n<p><em>Vampire Spawn.</em> A vampire’s power grows as they spend time in undeath. @UUID[Actor.0Vl4M1dD4zAqEFiX]{Vampire spawn}, the youngest of their ilk, are barely separated from their mortal selves. They are driven by their thirst for blood and by their master’s orders. Thanks to adventurers and zealous priests, few vampire spawn survive long enough to become true vampires.</p>\n<p><em>True Vampire.</em> After about a hundred years of undeath, a spawn grows in strength and intelligence, becoming a true vampire. They learn to control their thirst and earn new gifts, allowing them to turn their victims into vampire spawn and to charm humanoids. These benefits let the vampire blend into humanoid society, often by masquerading as a long-lost relative of their old family or taking up their former profession. Meanwhile, they carefully choose prey and build a protective army of spawn and thralls.</p>\n<p><em>Vampire Lord.</em> Most vampire lords have spent more than three hundred years in undeath. Some are created through powerful magic. Most have been so corrupted by their curse that they have no moral code and stop at nothing to get what they want. After centuries of amassing resources, vampire lords have the power to achieve nearly any goal. Some build empires. Others seek godhood. A few lie dormant, buried in sarcophagi while the ages flow past, waiting to awaken in new worlds ripe for the plucking.</p>\n<p><em>Strengths and Weaknesses.</em> Though most vampires shun sunlight, some know a secret ritual to counteract this weakness. Vampires don’t require food, water, or air, but their bodies become desiccated husks if they don’t regularly drink the blood of living beings. Each vampire has a special resting place, typically a coffin or similar vessel, where they can regenerate after an arduous battle. While thus recuperating, they can’t move.</p>\n<p><em>Vampire Thralls.</em> True vampires and vampire lords can cast @Compendium[dndbeyond-wel.items.OWYxNzQ1NTEyOGU1]{geas}, which charms other creatures to do the vampire’s bidding. Vampires use this spell to charm creatures in positions of authority. Most have at least one or two thralls working in local governments, which allows the vampire to prey on the populace without any interference from law enforcement or military.</p>\n<p>Though magic makes reliable thralls, vampires also rely on promises and coercion to maintain a reliable feeding ground and enact sinister plots. Some humanoids are so desperate for power that they will kill for a vampire in exchange for a promise of being turned into one of the undead someday. Vampires also rely on their servants and supernatural abilities to uncover the crimes and misconduct of mortals in power. Those secrets are used to blackmail people into doing a vampire’s bidding.</p>\n<p>Whenever a servant disobeys a vampire, swift retribution comes in the form of teeth to the neck. At least they can serve as a drink. There is always another who can take the thrall’s place.</p>\n<p><em>Exsanguinating Weapons.</em> Vampire lords can summon exsanguinating weapons made from the blood of their enemies. Only they can wield these weapons, and when a vampire is destroyed, their exsanguinating weapons disappear. The most infamous of these weapons is Sanguinus, the sword of Count Rhodar von Glauer.</p>\n<p><em>Blood-Starved Vampires.</em> When a vampire goes without blood for a year or more, their body shrivels, becoming a living husk. The vampire’s thirst for blood becomes their singular focus as their weakened form craves it. These @Compendium[dndbeyond-wel.actors.MjEzN2MyZDljODU0]{blood-starved vampires} often band together for survival, since a single blow can turn one to dust. A blood-starved vampire must drink the blood of scores of humanoids to be restored to an unweakened state.</p><hr /><h3>Lair Actions</h3>\n<p>When fighting inside his lair, Rhodar can take lair actions. On initiative count 20 (losing initiative ties), Rhodar can take one lair action to cause one of the following effects; he can’t use the same lair action two rounds in a row:</p>\n<p><strong>Children of the Night.</strong> A swarm of bats and insects flies around Rhodar, moving with him. The area within 30 feet of him is heavily obscured for other creatures until the end of initiative count 20 on the next round.</p>\n<p><strong>Blood Rain.</strong> Rhodar chooses a point he can see within 60 feet of him. Blood rains down in a 40-foot-high, 10-foot-radius cylinder centered on this point until the end of initiative count 20 on the next round. When a creature who isn’t Undead in the cylinder takes necrotic damage, they take an extra 5 [[/roll (1d10)]] necrotic damage.</p>\n<p><strong>Obey My Desire.</strong> Rhodar exerts his will on those who surround him. Each creature within 60 feet of Rhodar who can hear him must succeed on a DC 18 Wisdom saving throw or be @Compendium[dndbeyond-wel.journal.MjZiMDUyZDdlZGNi]{charmed} by him until the end of this turn. Each charmed creature must immediately use their reaction, if available, to make a melee attack against another creature, to make a melee attack against themself, or to drop @Compendium[dndbeyond-wel.journal.NTQxM2MyOWQ5MmFk]{prone} (Rhodar’s choice).</p>",
+        "public": "<p><em>I do the devil’s work.</em></p>\n<p><strong>Motto of House von Glauer</strong></p>\n<p>After falling to a vampiric curse in his early twenties, Count Rhodar—the last Lord of Glauer—ruled his tiny, heavily forested mountainous county in eastern Rhöl for three hundred years. There were worse overlords, the people said. After all, Rhodar took his pact with the people and the land seriously. He aggressively defended the villages in his demesne against constant incursions from rival counts and barons. He believed his power waxed and waned with the prosperity of the people and the vitality of the land.</p>\n<p>Each new moon, when the Red Tax came due, the count would visit a young candidate, then emerge with renewed vitality. Across the land, folk feared their Dragon Count, but the witches of the wood wove a prophecy: “The land’s darkest hour shall be the redemption of House von Glauer.”</p>\n<p>Eventually, the conquering force of Emperor Gaius VIII came for Rhodar—not because he was a vampire, but because the empire wanted his land and people. Count von Glauer was staked, and his body burned to ash. The emperor kept the Rod of Count Rhodar von Glauer as a trophy, and with this symbol of authority, he sealed his claim to the land.</p>\n<p>Under new rule, Rhodar’s people lament the absence of their lord, recalling the time before the coming of the empire as a golden age. But the witches’ whispers can still be heard. For as long as the people of Glauer persist, they continue believing their Dragon Count will return in their darkest hour to deliver them from tyranny.</p>\n<h3>Vampires</h3>\n<p><em>They look like us. Sometimes they even act like us. But they are not like us.</em></p>\n<p><strong>Lydia Lockwood, Occultist</strong></p>\n<p>Vampirism is a curse of blood. A curse that harrows its victims, turning them into mirror-mockeries of life. They become beings of pure vitality that nonetheless hunger for life’s essence: blood. With that hunger comes power everlasting over life and death. By feeding, a <a>vampire</a> passes this curse onto their victims. Though vampires are fundamentally changed from their mortal forms, they retain the intellect and memories of their mortal selves.</p>\n<p><em>Vampire Spawn.</em> A vampire’s power grows as they spend time in undeath. <a>Vampire spawn</a>, the youngest of their ilk, are barely separated from their mortal selves. They are driven by their thirst for blood and by their master’s orders. Thanks to adventurers and zealous priests, few vampire spawn survive long enough to become true vampires.</p>\n<p><em>True Vampire.</em> After about a hundred years of undeath, a spawn grows in strength and intelligence, becoming a true vampire. They learn to control their thirst and earn new gifts, allowing them to turn their victims into vampire spawn and to charm humanoids. These benefits let the vampire blend into humanoid society, often by masquerading as a long-lost relative of their old family or taking up their former profession. Meanwhile, they carefully choose prey and build a protective army of spawn and thralls.</p>\n<p><em>Vampire Lord.</em> Most vampire lords have spent more than three hundred years in undeath. Some are created through powerful magic. Most have been so corrupted by their curse that they have no moral code and stop at nothing to get what they want. After centuries of amassing resources, vampire lords have the power to achieve nearly any goal. Some build empires. Others seek godhood. A few lie dormant, buried in sarcophagi while the ages flow past, waiting to awaken in new worlds ripe for the plucking.</p>\n<p><em>Strengths and Weaknesses.</em> Though most vampires shun sunlight, some know a secret ritual to counteract this weakness. Vampires don’t require food, water, or air, but their bodies become desiccated husks if they don’t regularly drink the blood of living beings. Each vampire has a special resting place, typically a coffin or similar vessel, where they can regenerate after an arduous battle. While thus recuperating, they can’t move.</p>\n<p><em>Vampire Thralls.</em> True vampires and vampire lords can cast <a>geas</a>, which charms other creatures to do the vampire’s bidding. Vampires use this spell to charm creatures in positions of authority. Most have at least one or two thralls working in local governments, which allows the vampire to prey on the populace without any interference from law enforcement or military.</p>\n<p>Though magic makes reliable thralls, vampires also rely on promises and coercion to maintain a reliable feeding ground and enact sinister plots. Some humanoids are so desperate for power that they will kill for a vampire in exchange for a promise of being turned into one of the undead someday. Vampires also rely on their servants and supernatural abilities to uncover the crimes and misconduct of mortals in power. Those secrets are used to blackmail people into doing a vampire’s bidding.</p>\n<p>Whenever a servant disobeys a vampire, swift retribution comes in the form of teeth to the neck. At least they can serve as a drink. There is always another who can take the thrall’s place.</p>\n<p><em>Exsanguinating Weapons.</em> Vampire lords can summon exsanguinating weapons made from the blood of their enemies. Only they can wield these weapons, and when a vampire is destroyed, their exsanguinating weapons disappear. The most infamous of these weapons is Sanguinus, the sword of Count Rhodar von Glauer.</p>\n<p><em>Blood-Starved Vampires.</em> When a vampire goes without blood for a year or more, their body shrivels, becoming a living husk. The vampire’s thirst for blood becomes their singular focus as their weakened form craves it. These <a>blood-starved vampires</a> often band together for survival, since a single blow can turn one to dust. A blood-starved vampire must drink the blood of scores of humanoids to be restored to an unweakened state.</p>"
+      },
+      "alignment": "Neutral Evil",
+      "race": "Solo",
+      "type": {
+        "value": "undead"
+      },
+      "cr": 19,
+      "habitat": {
+        "custom": "",
+        "value": []
+      },
+      "ideal": "",
+      "bond": "",
+      "flaw": "",
+      "treasure": {
+        "value": []
+      }
+    },
+    "skills": {
+      "acr": {
+        "value": 0,
+        "ability": "dex",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ani": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "arc": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ath": {
+        "value": 0,
+        "ability": "str",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "dec": {
+        "value": 1,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "his": {
+        "value": 1,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ins": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "itm": {
+        "value": 1,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "inv": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "med": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "nat": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prc": {
+        "value": 1,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prf": {
+        "value": 0,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "per": {
+        "value": 1,
+        "ability": "cha",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "rel": {
+        "value": 0,
+        "ability": "int",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "slt": {
+        "value": 0,
+        "ability": "dex",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ste": {
+        "value": 1,
+        "ability": "dex",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "sur": {
+        "value": 0,
+        "ability": "wis",
+        "roll": {
+          "min": null,
+          "max": null,
+          "mode": 0
+        },
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      }
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": "",
+        "bypasses": []
+      },
+      "dr": {
+        "value": [
+          "necrotic"
+        ],
+        "custom": "Bludgeoning, Piercing, and Slashing from Mundane Attacks",
+        "bypasses": []
+      },
+      "dv": {
+        "value": [],
+        "custom": "",
+        "bypasses": []
+      },
+      "ci": {
+        "value": [
+          "charmed",
+          "frightened",
+          "prone",
+          "stunned"
+        ],
+        "custom": ""
+      },
+      "languages": {
+        "value": [
+          "common"
+        ],
+        "custom": "",
+        "communication": {}
+      },
+      "dm": {
+        "amount": {},
+        "bypasses": []
+      },
+      "important": false
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "spells": {
+      "pact": {
+        "value": 0,
+        "override": null
+      },
+      "spell1": {
+        "value": 0,
+        "override": null
+      },
+      "spell2": {
+        "value": 0,
+        "override": null
+      },
+      "spell3": {
+        "value": 0,
+        "override": null
+      },
+      "spell4": {
+        "value": 0,
+        "override": null
+      },
+      "spell5": {
+        "value": 0,
+        "override": null
+      },
+      "spell6": {
+        "value": 0,
+        "override": null
+      },
+      "spell7": {
+        "value": 0,
+        "override": null
+      },
+      "spell8": {
+        "value": 0,
+        "override": null
+      },
+      "spell9": {
+        "value": 0,
+        "override": null
+      }
+    },
+    "resources": {
+      "legact": {
+        "max": 0,
+        "spent": 0
+      },
+      "legres": {
+        "max": 0,
+        "spent": 0
+      },
+      "lair": {
+        "value": true,
+        "initiative": 20,
+        "inside": false
+      }
+    },
+    "bonuses": {
+      "mwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "msak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rsak": {
+        "attack": "",
+        "damage": ""
+      },
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "spell": {
+        "dc": ""
+      }
+    },
+    "source": {
+      "custom": "WEL p.272",
+      "revision": 1,
+      "rules": "2024"
+    },
+    "tools": {}
+  },
+  "prototypeToken": {
+    "flags": {},
+    "name": "Count Rhodar von Glauer",
+    "displayName": 0,
+    "width": 1,
+    "height": 1,
+    "rotation": 0,
+    "lockRotation": false,
+    "actorLink": false,
+    "disposition": -1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "randomImg": false,
+    "light": {
+      "dim": 0,
+      "bright": 0,
+      "angle": 360,
+      "alpha": 1,
+      "animation": {
+        "speed": 5,
+        "intensity": 5,
+        "type": null,
+        "reverse": false
+      },
+      "negative": false,
+      "priority": 0,
+      "color": null,
+      "coloration": 1,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "texture": {
+      "src": "https://assets.forge-vtt.com/62312552803a3a0dd1d8fd77/DnDBeyond/tokens/638512253761520599-token.png",
+      "tint": "#ffffff",
+      "scaleX": 1,
+      "scaleY": 1,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "rotation": 0,
+      "alphaThreshold": 0.75
+    },
+    "sight": {
+      "angle": 360,
+      "enabled": false,
+      "range": 120,
+      "brightness": 0,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "appendNumber": false,
+    "prependAdjective": false,
+    "alpha": 1,
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null
+  },
+  "ownership": {
+    "default": 0
+  }
+}
